@@ -168,24 +168,60 @@ const p=document.getElementById("poster");
 const ctx=p.getContext("2d");
 
 function generatePoster(){
-    ctx.clearRect(0,0,p.width,p.height);
-    ctx.fillStyle="#000";
-    ctx.fillRect(0,0,p.width,p.height);
 
-    ctx.strokeStyle="#00ff7f";
-    ctx.lineWidth=3;
-    ctx.strokeRect(6,6,p.width-12,p.height-12);
+    // 🌈 Colorful gradient background
+    const gradient = ctx.createLinearGradient(0, 0, p.width, p.height);
+    gradient.addColorStop(0, "#ff6a00");
+    gradient.addColorStop(0.5, "#ff2f92");
+    gradient.addColorStop(1, "#00c6ff");
+    ctx.fillStyle = gradient;
+    ctx.fillRect(0, 0, p.width, p.height);
 
-    ctx.fillStyle="#00ff7f";
-    ctx.font="32px Pacifico";
+    // ✨ Confetti dots
+    for(let i=0;i<120;i++){
+        ctx.fillStyle = `hsl(${Math.random()*360},100%,60%)`;
+        ctx.beginPath();
+        ctx.arc(Math.random()*p.width, Math.random()*p.height, 2, 0, Math.PI*2);
+        ctx.fill();
+    }
+
+    // 🟩 Neon border
+    ctx.strokeStyle="#ffffff";
+    ctx.lineWidth=4;
+    ctx.shadowColor="#ffffff";
+    ctx.shadowBlur=20;
+    ctx.strokeRect(12,12,p.width-24,p.height-24);
+    ctx.shadowBlur=0;
+
+    // 🎉 Title
+    ctx.font="36px Pacifico";
+    ctx.fillStyle="#fff700";
     ctx.textAlign="center";
-    ctx.fillText("🎉 HAPPY BIRTHDAY 🎂",p.width/2,60);
+    ctx.shadowColor="#ff9800";
+    ctx.shadowBlur=15;
+    ctx.fillText("🎉 HAPPY BIRTHDAY 🎂", p.width/2, 70);
+    ctx.shadowBlur=0;
 
-    ctx.font="20px Orbitron";
+    // 🖼️ Message card
+    ctx.fillStyle="rgba(0,0,0,0.55)";
+    ctx.fillRect(50,110,p.width-100,p.height-200);
+
+    ctx.strokeStyle="#ffffffaa";
+    ctx.strokeRect(50,110,p.width-100,p.height-200);
+
+    // 💌 Wish text
+    ctx.font="22px Orbitron";
+    ctx.fillStyle="#00ff7f";
     ctx.textAlign="left";
 
-    const text=wishBox.innerText||"Make a Wish!";
-    wrapText(text,40,120,p.width-80,30);
+    const text = wishBox.innerText || "Make a Wish!";
+    wrapText(text, 70, 150, p.width-140, 32);
+
+    // 💎 Footer
+    ctx.font="14px Orbitron";
+    ctx.fillStyle="#ffffffcc";
+    ctx.textAlign="center";
+    ctx.fillText("🎁 Birthday Wishes Generator", p.width/2, p.height-30);
 }
 
 
