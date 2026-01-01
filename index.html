@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- SEO -->
+<title>Wishing Generator Hub | Birthday, Festival & Event Wishes</title>
+<meta name="description" content="Trending wishing generators for birthdays, festivals and events. Create, personalize, share and download wishes instantly.">
+<meta name="keywords" content="wishing generator, birthday wishes generator, event wishes, festival wishes">
+<meta name="robots" content="index, follow">
+
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+    font-family:'Orbitron',sans-serif;
+    background:#000;
+    color:#00ff7f;
+    text-align:center;
+    overflow-x:hidden;
+}
+
+/* HERO */
+.hero{
+    position:relative;
+    padding:80px 20px 60px;
+}
+.hero h1{
+    font-size:3rem;
+    text-shadow:0 0 30px #00ff7f;
+    animation:fadeDown 1.2s ease;
+}
+.hero p{
+    margin-top:10px;
+    opacity:.85;
+}
+
+/* SEARCH */
+.search-box{
+    margin:30px auto;
+    max-width:400px;
+}
+.search-box input{
+    width:100%;
+    padding:12px 15px;
+    border-radius:30px;
+    border:none;
+    font-size:1rem;
+}
+
+/* FILTER */
+.filters{
+    margin:20px 0;
+}
+.filters button{
+    background:#000;
+    color:#00ff7f;
+    border:1px solid #00ff7f;
+    padding:8px 15px;
+    margin:5px;
+    border-radius:20px;
+    cursor:pointer;
+}
+.filters button:hover{
+    background:#00ff7f;
+    color:#000;
+}
+
+/* GRID */
+.tools{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+    gap:20px;
+    max-width:900px;
+    margin:30px auto 60px;
+    padding:0 20px;
+}
+.tool{
+    border:2px solid #00ff7f;
+    border-radius:15px;
+    padding:20px;
+    cursor:pointer;
+    transition:.3s;
+    box-shadow:0 0 15px #00ff7f33;
+    animation:fadeUp .6s ease;
+}
+.tool:hover{
+    transform:translateY(-8px) scale(1.05);
+    box-shadow:0 0 30px #00ff7f;
+}
+.tool span{
+    font-size:.8rem;
+    opacity:.8;
+}
+
+/* BADGE */
+.badge{
+    display:inline-block;
+    background:#00ff7f;
+    color:#000;
+    font-size:.7rem;
+    padding:3px 8px;
+    border-radius:20px;
+    margin-bottom:8px;
+}
+
+/* FOOTER */
+footer{
+    font-size:.8rem;
+    opacity:.6;
+    margin-bottom:20px;
+}
+
+/* ANIMATIONS */
+@keyframes fadeDown{
+    from{opacity:0;transform:translateY(-40px)}
+    to{opacity:1;transform:translateY(0)}
+}
+@keyframes fadeUp{
+    from{opacity:0;transform:translateY(30px)}
+    to{opacity:1;transform:translateY(0)}
+}
+
+/* SNOW */
+canvas{
+    position:fixed;
+    top:0;left:0;
+    z-index:-1;
+}
+</style>
+</head>
+
+<body>
+
+<canvas id="snow"></canvas>
+
+<section class="hero">
+    <h1>✨ Wishing Generator Hub ✨</h1>
+    <p>Create • Personalize • Share Beautiful Wishes</p>
+
+    <div class="search-box">
+        <input type="text" id="search" placeholder="Search wishing generator...">
+    </div>
+
+    <div class="filters">
+        <button onclick="filterTools('all')">All</button>
+        <button onclick="filterTools('birthday')">Birthday</button>
+        <button onclick="filterTools('festival')">Festival</button>
+        <button onclick="filterTools('event')">Event</button>
+    </div>
+</section>
+
+<section class="tools" id="toolList"></section>
+
+<footer>
+© 2026 Wishing Generator Hub
+</footer>
+
+<script>
+/* AUTO CONNECT GENERATORS */
+const tools=[
+ {name:"Birthday Wishes Generator",file:"birthday-wishes-generator.html",cat:"birthday",badge:"🔥 Trending"},
+ {name:"Anniversary Wishes Generator",file:"anniversary-wishes-generator.html",cat:"event",badge:"❤️ Popular"},
+ {name:"Eid Wishes Generator",file:"eid-wishes-generator.html",cat:"festival",badge:"🕌 Hot"},
+ {name:"Festival Wishes Generator",file:"festival-wishes-generator.html",cat:"festival"},
+ {name:"New Year Wishes Generator",file:"new-year-wishes-generator.html",cat:"event",badge:"🎆 Viral"},
+ {name:"WhatsApp Wishes Generator",file:"whatsapp-wishes-generator.html",cat:"event"}
+];
+
+const list=document.getElementById("toolList");
+
+function render(data){
+ list.innerHTML="";
+ data.forEach(t=>{
+   list.innerHTML+=`
+    <div class="tool" data-cat="${t.cat}" onclick="location.href='${t.file}'">
+     ${t.badge?`<div class="badge">${t.badge}</div>`:""}
+     <h3>${t.name}</h3>
+     <span>${t.cat.toUpperCase()} Wishes</span>
+    </div>`;
+ });
+}
+render(tools);
+
+/* SEARCH */
+document.getElementById("search").addEventListener("input",e=>{
+ const v=e.target.value.toLowerCase();
+ render(tools.filter(t=>t.name.toLowerCase().includes(v)));
+});
+
+/* FILTER */
+function filterTools(c){
+ if(c==="all") render(tools);
+ else render(tools.filter(t=>t.cat===c));
+}
+
+/* SNOWFALL */
+const c=document.getElementById("snow"),x=c.getContext("2d");
+c.width=innerWidth;c.height=innerHeight;
+let s=[];
+for(let i=0;i<80;i++)s.push({x:Math.random()*c.width,y:Math.random()*c.height,r:Math.random()*3+1});
+(function snow(){
+ x.clearRect(0,0,c.width,c.height);
+ x.fillStyle="#00ff7f";
+ s.forEach(f=>{
+   x.beginPath();
+   x.arc(f.x,f.y,f.r,0,Math.PI*2);
+   x.fill();
+   f.y+=1;if(f.y>c.height)f.y=0;
+ });
+ requestAnimationFrame(snow);
+})();
+</script>
+
+<!-- SCHEMA -->
+<script type="application/ld+json">
+{
+ "@context":"https://schema.org",
+ "@type":"WebSite",
+ "name":"Wishing Generator Hub",
+ "url":"https://onlinewebtool.live/",
+ "potentialAction":{
+   "@type":"SearchAction",
+   "target":"https://onlinewebtool.live/?q={search_term_string}",
+   "query-input":"required name=search_term_string"
+ }
+}
+</script>
+
+</body>
+</html>
