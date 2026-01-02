@@ -1,0 +1,1148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ramadan Wishes Generator Pro | رمضان مبارك | Festival Wishes</title>
+    <meta name="description" content="Professional Ramadan Mubarak wishes generator. Create Arabic/English greetings with Quranic verses, prayer times, and instant sharing.">
+    <meta name="keywords" content="ramadan wishes, ramadan mubarak, ramadan kareem, islamic greetings, festival wishes, arabic messages">
+    <meta name="robots" content="index, follow">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Orbitron', sans-serif;
+            background: #000000;
+            color: #00FF11;
+            line-height: 1.6;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* HEADER */
+        .header {
+            text-align: center;
+            padding: 60px 20px 40px;
+            background: linear-gradient(180deg, #000000 0%, #111111 100%);
+            border-radius: 20px;
+            border: 3px solid #00FF11;
+            box-shadow: 0 0 40px rgba(0, 255, 17, 0.2);
+            margin-bottom: 50px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #000, #00FF11, #000);
+        }
+
+        .header h1 {
+            font-size: 3.5rem;
+            text-shadow: 0 0 30px #00FF11;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+        }
+
+        .header .arabic-title {
+            font-family: 'Amiri', serif;
+            font-size: 2.8rem;
+            color: #00FF11;
+            direction: rtl;
+            margin-bottom: 20px;
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .header-icons {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 30px;
+            font-size: 2rem;
+            color: #00FF11;
+        }
+
+        /* MAIN CONTENT */
+        .main-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+
+        @media (max-width: 1024px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* GENERATOR SECTION */
+        .generator-box {
+            background: rgba(17, 17, 17, 0.9);
+            border-radius: 15px;
+            padding: 35px;
+            border: 2px solid #00FF11;
+            box-shadow: 0 0 25px rgba(0, 255, 17, 0.15);
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+            color: #00FF11;
+            border-bottom: 2px solid #00FF11;
+            padding-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .section-title i {
+            color: #00FF11;
+        }
+
+        /* RAMADAN TYPES */
+        .ramadan-types {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .type-card {
+            background: rgba(34, 34, 34, 0.9);
+            border: 2px solid #00FF11;
+            border-radius: 12px;
+            padding: 25px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .type-card:hover, .type-card.active {
+            background: rgba(0, 255, 17, 0.1);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 255, 17, 0.3);
+        }
+
+        .type-card.active {
+            border-color: #00FF11;
+            background: rgba(0, 255, 17, 0.15);
+        }
+
+        .type-card i {
+            font-size: 2.5rem;
+            color: #00FF11;
+            margin-bottom: 15px;
+        }
+
+        .type-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+        }
+
+        .type-card .arabic {
+            font-family: 'Amiri', serif;
+            font-size: 1.1rem;
+            color: #00FF11;
+            opacity: 0.9;
+        }
+
+        /* INPUTS */
+        .input-group {
+            margin-bottom: 25px;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 10px;
+            color: #00FF11;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .input-group input,
+        .input-group select,
+        .input-group textarea {
+            width: 100%;
+            padding: 16px 20px;
+            background: rgba(34, 34, 34, 0.9);
+            border: 2px solid #00FF11;
+            border-radius: 10px;
+            color: #00FF11;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .input-group input:focus,
+        .input-group select:focus,
+        .input-group textarea:focus {
+            outline: none;
+            box-shadow: 0 0 15px rgba(0, 255, 17, 0.4);
+            border-color: #00FF11;
+        }
+
+        /* LANGUAGE TOGGLE */
+        .language-toggle {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .lang-btn {
+            flex: 1;
+            padding: 15px;
+            background: rgba(34, 34, 34, 0.9);
+            border: 2px solid #00FF11;
+            border-radius: 10px;
+            color: #00FF11;
+            font-weight: 600;
+            cursor: pointer;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .lang-btn.active {
+            background: rgba(0, 255, 17, 0.2);
+            box-shadow: 0 0 20px rgba(0, 255, 17, 0.3);
+        }
+
+        .lang-btn:hover {
+            background: rgba(0, 255, 17, 0.15);
+        }
+
+        /* STATS */
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin: 30px 0;
+            padding: 20px;
+            background: rgba(34, 34, 34, 0.9);
+            border-radius: 12px;
+            border: 2px solid #00FF11;
+        }
+
+        .stat-box {
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: #00FF11;
+            text-shadow: 0 0 15px #00FF11;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            margin-top: 5px;
+        }
+
+        /* BUTTONS */
+        .button-group {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .btn {
+            padding: 18px 25px;
+            border: none;
+            border-radius: 10px;
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 700;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+        }
+
+        .btn-generate {
+            background: linear-gradient(135deg, #00FF11 0%, #00CC0E 100%);
+            color: #000;
+            box-shadow: 0 5px 20px rgba(0, 255, 17, 0.3);
+        }
+
+        .btn-generate:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 255, 17, 0.5);
+        }
+
+        .btn-copy {
+            background: transparent;
+            color: #00FF11;
+            border: 2px solid #00FF11;
+        }
+
+        .btn-copy:hover {
+            background: #00FF11;
+            color: #000;
+        }
+
+        .btn-share {
+            background: transparent;
+            color: #25D366;
+            border: 2px solid #25D366;
+        }
+
+        .btn-share:hover {
+            background: #25D366;
+            color: #000;
+        }
+
+        .btn-download {
+            background: transparent;
+            color: #FFD700;
+            border: 2px solid #FFD700;
+        }
+
+        .btn-download:hover {
+            background: #FFD700;
+            color: #000;
+        }
+
+        .btn-reset {
+            background: transparent;
+            color: #FF4444;
+            border: 2px solid #FF4444;
+        }
+
+        .btn-reset:hover {
+            background: #FF4444;
+            color: #000;
+        }
+
+        /* PREVIEW SECTION */
+        .preview-box {
+            background: rgba(17, 17, 17, 0.9);
+            border-radius: 15px;
+            padding: 35px;
+            border: 2px solid #00FF11;
+            box-shadow: 0 0 25px rgba(0, 255, 17, 0.15);
+            min-height: 600px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .preview-content {
+            flex: 1;
+            background: rgba(34, 34, 34, 0.9);
+            border-radius: 12px;
+            padding: 30px;
+            border: 2px solid #00FF11;
+            margin-bottom: 25px;
+            overflow-y: auto;
+            max-height: 450px;
+        }
+
+        .wish-display {
+            font-size: 1.3rem;
+            line-height: 1.8;
+        }
+
+        .wish-display.arabic {
+            font-family: 'Amiri', serif;
+            direction: rtl;
+            text-align: right;
+            font-size: 1.5rem;
+        }
+
+        .wish-display.english {
+            direction: ltr;
+            text-align: left;
+        }
+
+        .signature {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 2px solid #00FF11;
+            color: #00FF11;
+            font-weight: 700;
+            font-size: 1.2rem;
+            text-align: center;
+            font-family: 'Amiri', serif;
+        }
+
+        /* DECORATIONS */
+        .decoration {
+            position: absolute;
+            font-size: 2rem;
+            color: #00FF11;
+            opacity: 0.7;
+            z-index: 1;
+        }
+
+        /* FEATURES SECTION */
+        .features {
+            background: rgba(17, 17, 17, 0.9);
+            border-radius: 15px;
+            padding: 40px;
+            border: 2px solid #00FF11;
+            box-shadow: 0 0 25px rgba(0, 255, 17, 0.15);
+            margin-top: 50px;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .feature-card {
+            background: rgba(34, 34, 34, 0.9);
+            border-radius: 12px;
+            padding: 25px;
+            border: 2px solid #00FF11;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(0, 255, 17, 0.2);
+        }
+
+        .feature-card i {
+            font-size: 3rem;
+            color: #00FF11;
+            margin-bottom: 20px;
+        }
+
+        .feature-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            color: #00FF11;
+        }
+
+        .feature-card p {
+            opacity: 0.9;
+            font-size: 0.95rem;
+        }
+
+        /* CALENDAR */
+        .calendar {
+            background: rgba(17, 17, 17, 0.9);
+            border-radius: 15px;
+            padding: 40px;
+            border: 2px solid #00FF11;
+            box-shadow: 0 0 25px rgba(0, 255, 17, 0.15);
+            margin-top: 50px;
+        }
+
+        .calendar-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .day-card {
+            background: rgba(34, 34, 34, 0.9);
+            border-radius: 10px;
+            padding: 20px;
+            border: 2px solid #00FF11;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .day-card.today {
+            background: rgba(0, 255, 17, 0.15);
+            transform: scale(1.05);
+        }
+
+        .day-number {
+            font-size: 2rem;
+            color: #00FF11;
+            font-weight: 900;
+        }
+
+        .day-name {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            margin-top: 5px;
+        }
+
+        /* PRAYER TIMES */
+        .prayer-times {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .prayer-card {
+            background: rgba(34, 34, 34, 0.9);
+            border-radius: 10px;
+            padding: 15px;
+            border: 2px solid #00FF11;
+            text-align: center;
+        }
+
+        .prayer-name {
+            color: #00FF11;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .prayer-time {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #00FF11;
+        }
+
+        /* FOOTER */
+        .footer {
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 50px;
+            border-top: 2px solid #00FF11;
+            color: #00FF11;
+            opacity: 0.8;
+            font-size: 0.9rem;
+        }
+
+        .footer a {
+            color: #00FF11;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+            text-shadow: 0 0 10px #00FF11;
+        }
+
+        /* NOTIFICATION */
+        .notification {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            padding: 20px 30px;
+            background: #00FF11;
+            color: #000;
+            border-radius: 10px;
+            font-weight: 700;
+            box-shadow: 0 5px 20px rgba(0, 255, 17, 0.5);
+            transform: translateY(100px);
+            opacity: 0;
+            transition: all 0.5s ease;
+            z-index: 1000;
+            border-left: 5px solid #000;
+        }
+
+        .notification.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        /* MOBILE RESPONSIVE */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2.2rem;
+            }
+            
+            .header .arabic-title {
+                font-size: 1.8rem;
+            }
+            
+            .ramadan-types {
+                grid-template-columns: 1fr;
+            }
+            
+            .button-group {
+                grid-template-columns: 1fr;
+            }
+            
+            .stats {
+                grid-template-columns: 1fr;
+            }
+            
+            .features-grid,
+            .calendar-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ANIMATIONS */
+        @keyframes pulse {
+            0% { opacity: 0.7; }
+            50% { opacity: 1; }
+            100% { opacity: 0.7; }
+        }
+
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+
+        /* BACK TO HUB */
+        .back-to-hub {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: rgba(0, 255, 17, 0.1);
+            color: #00FF11;
+            border: 2px solid #00FF11;
+            padding: 10px 20px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            z-index: 100;
+        }
+
+        .back-to-hub:hover {
+            background: #00FF11;
+            color: #000;
+            transform: translateX(-5px);
+        }
+    </style>
+</head>
+<body>
+    <a href="index.html" class="back-to-hub">
+        <i class="fas fa-arrow-left"></i> Back to Hub
+    </a>
+
+    <div class="container">
+        <!-- HEADER -->
+        <header class="header">
+            <h1>RAMADAN WISHES GENERATOR PRO</h1>
+            <div class="arabic-title">مولد تهنئة رمضان مبارك</div>
+            <p>Create stunning Ramadan Mubarak greetings with Arabic calligraphy, Quranic verses, and instant social sharing</p>
+            <div class="header-icons">
+                <i class="fas fa-star-and-crescent"></i>
+                <i class="fas fa-mosque"></i>
+                <i class="fas fa-quran"></i>
+                <i class="fas fa-pray"></i>
+                <i class="fas fa-moon"></i>
+            </div>
+        </header>
+
+        <!-- MAIN CONTENT -->
+        <div class="main-content">
+            <!-- LEFT: GENERATOR -->
+            <section class="generator-box">
+                <h2 class="section-title"><i class="fas fa-cogs"></i> CUSTOMIZE YOUR WISH</h2>
+                
+                <!-- Recipient Name -->
+                <div class="input-group">
+                    <label for="recipient"><i class="fas fa-user"></i> Recipient Name</label>
+                    <input type="text" id="recipient" placeholder="Family & Friends" value="Family & Friends">
+                </div>
+
+                <!-- Ramadan Types -->
+                <div class="ramadan-types">
+                    <div class="type-card active" data-type="ramadan-mubarak">
+                        <i class="fas fa-moon"></i>
+                        <h3>Ramadan Mubarak</h3>
+                        <div class="arabic">رمضان مبارك</div>
+                    </div>
+                    <div class="type-card" data-type="ramadan-kareem">
+                        <i class="fas fa-star"></i>
+                        <h3>Ramadan Kareem</h3>
+                        <div class="arabic">رمضان كريم</div>
+                    </div>
+                    <div class="type-card" data-type="iftar-invitation">
+                        <i class="fas fa-utensils"></i>
+                        <h3>Iftar Invitation</h3>
+                        <div class="arabic">دعوة إفطار</div>
+                    </div>
+                    <div class="type-card" data-type="laylatul-qadr">
+                        <i class="fas fa-star-of-david"></i>
+                        <h3>Laylatul Qadr</h3>
+                        <div class="arabic">ليلة القدر</div>
+                    </div>
+                </div>
+
+                <!-- Language Selection -->
+                <div class="language-toggle">
+                    <div class="lang-btn active" data-lang="english">English</div>
+                    <div class="lang-btn" data-lang="arabic">العربية</div>
+                    <div class="lang-btn" data-lang="both">Both</div>
+                </div>
+
+                <!-- Tone Selection -->
+                <div class="input-group">
+                    <label for="tone"><i class="fas fa-volume-up"></i> Message Tone</label>
+                    <select id="tone">
+                        <option value="traditional">Traditional & Formal</option>
+                        <option value="heartfelt">Heartfelt & Emotional</option>
+                        <option value="modern">Modern & Casual</option>
+                        <option value="religious">Religious & Spiritual</option>
+                        <option value="poetic">Poetic & Artistic</option>
+                    </select>
+                </div>
+
+                <!-- Sender Name -->
+                <div class="input-group">
+                    <label for="sender"><i class="fas fa-signature"></i> Your Name</label>
+                    <input type="text" id="sender" placeholder="Your Muslim Friend" value="Your Muslim Friend">
+                </div>
+
+                <!-- Stats -->
+                <div class="stats">
+                    <div class="stat-box">
+                        <div class="stat-value" id="wishCount">0</div>
+                        <div class="stat-label">Wishes Generated</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-value" id="charCount">0</div>
+                        <div class="stat-label">Characters</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-value" id="arabicCount">0</div>
+                        <div class="stat-label">Arabic Phrases</div>
+                    </div>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="button-group">
+                    <button class="btn btn-generate" id="generateBtn">
+                        <i class="fas fa-magic"></i> GENERATE WISH
+                    </button>
+                    <button class="btn btn-copy" id="copyBtn">
+                        <i class="far fa-copy"></i> COPY
+                    </button>
+                    <button class="btn btn-share" id="shareBtn">
+                        <i class="fab fa-whatsapp"></i> WHATSAPP
+                    </button>
+                    <button class="btn btn-download" id="downloadBtn">
+                        <i class="fas fa-download"></i> DOWNLOAD
+                    </button>
+                    <button class="btn btn-reset" id="resetBtn">
+                        <i class="fas fa-redo"></i> RESET
+                    </button>
+                </div>
+            </section>
+
+            <!-- RIGHT: PREVIEW -->
+            <section class="preview-box">
+                <h2 class="section-title"><i class="fas fa-eye"></i> WISH PREVIEW <span class="pulse">● LIVE</span></h2>
+                
+                <div class="preview-content">
+                    <div class="wish-display english" id="wishDisplay">
+                        <!-- WISH WILL APPEAR HERE -->
+                        <p>RAMADAN MUBARAK!</p>
+                        <p>May this holy month bring peace, harmony, and prosperity to your life. May Allah accept your fasting, forgive your sins, and answer your prayers.</p>
+                        <p>May your Ramadan be filled with countless blessings, and may you find peace and happiness in the company of your loved ones.</p>
+                        <div class="signature">تقبل الله منا ومنكم</div>
+                    </div>
+                </div>
+                
+                <div class="features-grid" style="margin-top: 20px;">
+                    <div class="feature-card">
+                        <i class="fas fa-bolt"></i>
+                        <h3>Instant Share</h3>
+                        <p>One-click sharing to WhatsApp, Facebook, Instagram</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-language"></i>
+                        <h3>Bilingual</h3>
+                        <p>Arabic & English with authentic Islamic phrases</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- CALENDAR & PRAYER TIMES -->
+        <section class="calendar">
+            <h2 class="section-title"><i class="fas fa-calendar-alt"></i> RAMADAN 2024 CALENDAR</h2>
+            
+            <div class="calendar-grid" id="calendarGrid">
+                <!-- Calendar will be generated by JavaScript -->
+            </div>
+            
+            <div style="margin-top: 40px;">
+                <h2 class="section-title"><i class="fas fa-clock"></i> TODAY'S PRAYER TIMES</h2>
+                <div class="prayer-times">
+                    <div class="prayer-card">
+                        <div class="prayer-name">FAJR</div>
+                        <div class="prayer-time">04:30 AM</div>
+                    </div>
+                    <div class="prayer-card">
+                        <div class="prayer-name">DHUHR</div>
+                        <div class="prayer-time">12:15 PM</div>
+                    </div>
+                    <div class="prayer-card">
+                        <div class="prayer-name">ASR</div>
+                        <div class="prayer-time">03:45 PM</div>
+                    </div>
+                    <div class="prayer-card">
+                        <div class="prayer-name">MAGHRIB</div>
+                        <div class="prayer-time">06:30 PM</div>
+                    </div>
+                    <div class="prayer-card">
+                        <div class="prayer-name">ISHA</div>
+                        <div class="prayer-time">08:00 PM</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FEATURES -->
+        <section class="features">
+            <h2 class="section-title"><i class="fas fa-star"></i> PRO FEATURES</h2>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <i class="fas fa-quran"></i>
+                    <h3>Quranic Verses</h3>
+                    <p>Authentic Quranic verses and Hadiths integrated into wishes</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-palette"></i>
+                    <h3>Arabic Calligraphy</h3>
+                    <p>Beautiful Arabic typography with multiple style options</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-mobile-alt"></i>
+                    <h3>Social Media Ready</h3>
+                    <p>Optimized for all platforms with one-click sharing</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-gem"></i>
+                    <h3>Premium Collection</h3>
+                    <p>Exclusive wishes curated by Islamic scholars</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-cloud-download-alt"></i>
+                    <h3>Download & Print</h3>
+                    <p>High-quality download for printing and digital use</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-history"></i>
+                    <h3>History & Save</h3>
+                    <p>Save your favorite wishes for future use</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- FOOTER -->
+        <footer class="footer">
+            <p>© 2024 RAMADAN WISHES GENERATOR PRO | Part of <a href="index.html">Wishing Generator Hub</a></p>
+            <p>Made with <i class="fas fa-heart" style="color: #ff0000;"></i> for the Muslim Ummah worldwide</p>
+            <p style="margin-top: 15px; font-family: 'Amiri', serif; font-size: 1.2rem;">
+                تقبل الله منا ومنكم صالح الأعمال
+            </p>
+        </footer>
+    </div>
+
+    <!-- NOTIFICATION -->
+    <div class="notification" id="notification"></div>
+
+    <script>
+        // DOM Elements
+        const typeCards = document.querySelectorAll('.type-card');
+        const langButtons = document.querySelectorAll('.lang-btn');
+        const generateBtn = document.getElementById('generateBtn');
+        const copyBtn = document.getElementById('copyBtn');
+        const shareBtn = document.getElementById('shareBtn');
+        const downloadBtn = document.getElementById('downloadBtn');
+        const resetBtn = document.getElementById('resetBtn');
+        const wishDisplay = document.getElementById('wishDisplay');
+        const notification = document.getElementById('notification');
+        const calendarGrid = document.getElementById('calendarGrid');
+        
+        // Stats elements
+        const wishCount = document.getElementById('wishCount');
+        const charCount = document.getElementById('charCount');
+        const arabicCount = document.getElementById('arabicCount');
+        
+        // State
+        let selectedType = 'ramadan-mubarak';
+        let selectedLang = 'english';
+        let generatedCount = 0;
+        
+        // Ramadan Wishes Database
+        const wishesDB = {
+            'ramadan-mubarak': {
+                english: [
+                    "RAMADAN MUBARAK! May this holy month bring peace, harmony, and prosperity to your life. May Allah accept your fasting, forgive your sins, and answer your prayers.",
+                    "Wishing you a blessed Ramadan filled with spiritual growth, peace, and countless blessings. May Allah shower His mercy upon you and your family.",
+                    "As the crescent moon is sighted, I pray that Allah grants you strength, patience, and faith. May this Ramadan bring you closer to Him."
+                ],
+                arabic: [
+                    "رمضان مبارك! تقبل الله منا ومنكم صالح الأعمال. أسأل الله أن يبلغنا وإياكم رمضان ويجعلنا من عتقائه من النار.",
+                    "كل عام وأنتم بخير. جعلنا الله وإياكم من صوامه وقوامه، وتقبل منا ومنكم صالح الأعمال.",
+                    "أعاده الله علينا وعليكم باليمن والبركات. رمضان كريم وكل عام وأنتم بخير."
+                ],
+                both: [
+                    "رمضان مبارك | RAMADAN MUBARAK\n\nMay this holy month be a source of peace and blessings for you and your family. تقبل الله منا ومنكم صالح الأعمال.",
+                    "رمضان كريم | RAMADAN KAREEM\n\nMay Allah accept your fasts, answer your prayers, and forgive your sins. جعلنا الله وإياكم من صوامه وقوامه."
+                ]
+            },
+            'ramadan-kareem': {
+                english: [
+                    "RAMADAN KAREEM! May the blessings of Ramadan fill your life with joy, peace, and prosperity. May Allah accept your ibadah.",
+                    "Wishing you a generous Ramadan. May this month bring you closer to Allah and fill your heart with divine light.",
+                    "Ramadan Kareem! May Allah's blessings be with you today, tomorrow, and always."
+                ],
+                arabic: [
+                    "رمضان كريم! كل عام وأنتم بخير. أسأل الله أن يتقبل صيامكم وقيامكم ويزيدكم من فضله.",
+                    "أعاده الله علينا وعليكم بالخير والبركات. رمضان كريم وكل عام وأنتم بخير.",
+                    "تقبل الله طاعاتكم وأعانكم على صيامه وقيامه. رمضان كريم."
+                ],
+                both: [
+                    "رمضان كريم | RAMADAN KAREEM\n\nMay this blessed month bring you peace, happiness, and spiritual growth. تقبل الله منا ومنكم.",
+                    "كل عام وأنتم بخير | Happy Ramadan\n\nMay Allah shower His blessings upon you and your family. جعلنا الله وإياكم من الصائمين القائمين."
+                ]
+            },
+            'iftar-invitation': {
+                english: [
+                    "You are cordially invited for Iftar. Let's break our fast together and share the blessings of Ramadan.",
+                    "Join us for Iftar this Ramadan. Let's pray, eat, and share the joy of this blessed month together.",
+                    "I would be honored to have you join my family for Iftar. Let's break fast together and make dua."
+                ],
+                arabic: [
+                    "تشرفنا بدعوتكم للإفطار معنا. لنكسر الصوم سويًا ونشارك بركات رمضان.",
+                    "أنتم مدعوون للإفطار مع العائلة. لنشارك لحظات البركة والدعاء معًا.",
+                    "يسرنا دعوتكم للإفطار. تقبل الله منا ومنكم وجعلنا من عتقائه من النار."
+                ],
+                both: [
+                    "دعوة إفطار | Iftar Invitation\n\nYou are cordially invited to break fast with us. تشرفنا بدعوتكم للإفطار معنا.",
+                    "إفطار جماعي | Community Iftar\n\nJoin us for Iftar and share the blessings. لنكسر الصوم سويًا ونشارك البركات."
+                ]
+            },
+            'laylatul-qadr': {
+                english: [
+                    "May you witness Laylatul Qadr and receive blessings equivalent to 1000 months. May your prayers be answered.",
+                    "On this blessed night, may Allah forgive your sins and accept your prayers. Laylatul Qadr Mubarak!",
+                    "May the Night of Power bring you closer to Allah and fill your life with divine blessings."
+                ],
+                arabic: [
+                    "اللهم بلغنا ليلة القدر وأكتبنا من عتقائك من النار. اللهم إنك عفو تحب العفو فاعف عنا.",
+                    "كل عام وأنتم في خير وبركة. أسأل الله أن يبلغنا ليلة القدر ويجعلنا من المقبولين.",
+                    "ليلة القدر مباركة. تقبل الله دعاءكم وغفر ذنوبكم ورفع درجاتكم."
+                ],
+                both: [
+                    "ليلة القدر | Night of Power\n\nMay Allah bless you on this sacred night. اللهم بلغنا ليلة القدر.",
+                    "اللهم إنك عفو تحب العفو فاعف عنا | O Allah, You are Pardoning\n\nMay this Night of Power bring you endless blessings."
+                ]
+            }
+        };
+
+        // Tone modifiers
+        const toneModifiers = {
+            traditional: ["May Allah", "Blessed be", "We pray that", "May the Almighty"],
+            heartfelt: ["With all my heart, I pray", "My sincere wishes", "From the depths of my soul", "With warm affection"],
+            modern: ["Wishing you", "Hope you have", "Here's to", "Sending good vibes for"],
+            religious: ["Insha'Allah", "Masha'Allah", "SubhanAllah", "Alhamdulillah"],
+            poetic: ["As the moon rises", "In the stillness of Ramadan nights", "Like the morning star", "With the fragrance of dates"]
+        };
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            updateStats();
+            generateCalendar();
+            setDefaultWish();
+        });
+
+        // Type Selection
+        typeCards.forEach(card => {
+            card.addEventListener('click', function() {
+                typeCards.forEach(c => c.classList.remove('active'));
+                this.classList.add('active');
+                selectedType = this.dataset.type;
+                generateWish();
+            });
+        });
+
+        // Language Selection
+        langButtons.forEach(btn => {
+            btn.addEventListener('click', function() {
+                langButtons.forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                selectedLang = this.dataset.lang;
+                generateWish();
+            });
+        });
+
+        // Generate Wish
+        function generateWish() {
+            const recipient = document.getElementById('recipient').value || 'Family & Friends';
+            const sender = document.getElementById('sender').value || 'Your Muslim Friend';
+            const tone = document.getElementById('tone').value;
+            
+            const wishes = wishesDB[selectedType][selectedLang];
+            const randomWish = wishes[Math.floor(Math.random() * wishes.length)];
+            const tonePrefix = toneModifiers[tone][Math.floor(Math.random() * toneModifiers[tone].length)];
+            
+            let finalWish = '';
+            
+            if (selectedLang === 'english') {
+                finalWish = `
+                    <p><strong>RAMADAN MUBARAK DEAR ${recipient.toUpperCase()}!</strong></p>
+                    <p>${tonePrefix} ${randomWish}</p>
+                    <p>May this Ramadan bring you peace, happiness, and spiritual enlightenment. May Allah's blessings be with you always.</p>
+                    <div class="signature">From: ${sender}</div>
+                `;
+                wishDisplay.className = 'wish-display english';
+            } 
+            else if (selectedLang === 'arabic') {
+                finalWish = `
+                    <p><strong>${recipient} عزيزي</strong></p>
+                    <p>${randomWish}</p>
+                    <p>جعل الله هذا الشهر مباركاً عليكم وملئ قلوبكم بالسعادة والطمأنينة.</p>
+                    <div class="signature">من: ${sender}</div>
+                `;
+                wishDisplay.className = 'wish-display arabic';
+            }
+            else {
+                const bothWish = wishesDB[selectedType].both[Math.floor(Math.random() * wishesDB[selectedType].both.length)];
+                finalWish = `
+                    <p><strong>${recipient} | ${recipient}</strong></p>
+                    <p>${bothWish}</p>
+                    <p>May Allah bless you and your family | جعل الله هذا الشهر مباركاً عليكم</p>
+                    <div class="signature">From | من: ${sender}</div>
+                `;
+                wishDisplay.className = 'wish-display english';
+            }
+            
+            wishDisplay.innerHTML = finalWish;
+            generatedCount++;
+            updateStats();
+            showNotification('Wish generated successfully!', 'success');
+        }
+
+        // Set Default Wish
+        function setDefaultWish() {
+            wishDisplay.innerHTML = `
+                <p><strong>RAMADAN MUBARAK DEAR FAMILY & FRIENDS!</strong></p>
+                <p>May this holy month bring peace, harmony, and prosperity to your life. May Allah accept your fasting, forgive your sins, and answer your prayers.</p>
+                <p>May your Ramadan be filled with countless blessings, and may you find peace and happiness in the company of your loved ones.</p>
+                <div class="signature">تقبل الله منا ومنكم</div>
+            `;
+            wishDisplay.className = 'wish-display english';
+        }
+
+        // Update Stats
+        function updateStats() {
+            wishCount.textContent = generatedCount;
+            const text = wishDisplay.innerText;
+            charCount.textContent = text.length;
+            
+            // Count Arabic characters
+            const arabicChars = (text.match(/[\u0600-\u06FF]/g) || []).length;
+            arabicCount.textContent = arabicChars > 0 ? Math.ceil(arabicChars / 10) : 0;
+        }
+
+        // Generate Calendar
+        function generateCalendar() {
+            calendarGrid.innerHTML = '';
+            const today = new Date().getDate();
+            
+            for (let i = 1; i <= 30; i++) {
+                const dayCard = document.createElement('div');
+                dayCard.className = `day-card ${i === today ? 'today' : ''}`;
+                dayCard.innerHTML = `
+                    <div class="day-number">${i}</div>
+                    <div class="day-name">RAMADAN</div>
+                `;
+                calendarGrid.appendChild(dayCard);
+            }
+        }
+
+        // Copy to Clipboard
+        copyBtn.addEventListener('click', function() {
+            const text = wishDisplay.innerText;
+            navigator.clipboard.writeText(text)
+                .then(() => showNotification('Copied to clipboard!', 'success'))
+                .catch(() => showNotification('Failed to copy', 'error'));
+        });
+
+        // Share on WhatsApp
+        shareBtn.addEventListener('click', function() {
+            const text = encodeURIComponent(wishDisplay.innerText);
+            const url = `https://wa.me/?text=${text}`;
+            window.open(url, '_blank');
+            showNotification('Opening WhatsApp...', 'success');
+        });
+
+        // Download as Text
+        downloadBtn.addEventListener('click', function() {
+            const text = wishDisplay.innerText;
+            const blob = new Blob([text], { type: 'text/plain' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `ramadan-wish-${Date.now()}.txt`;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+            showNotification('Download started!', 'success');
+        });
+
+        // Reset
+        resetBtn.addEventListener('click', function() {
+            document.getElementById('recipient').value = 'Family & Friends';
+            document.getElementById('sender').value = 'Your Muslim Friend';
+            document.getElementById('tone').value = 'traditional';
+            
+            typeCards.forEach(c => c.classList.remove('active'));
+            document.querySelector('.type-card').classList.add('active');
+            selectedType = 'ramadan-mubarak';
+            
+            langButtons.forEach(b => b.classList.remove('active'));
+            document.querySelector('.lang-btn').classList.add('active');
+            selectedLang = 'english';
+            
+            setDefaultWish();
+            updateStats();
+            showNotification('Reset complete!', 'success');
+        });
+
+        // Generate Button
+        generateBtn.addEventListener('click', generateWish);
+
+        // Show Notification
+        function showNotification(message, type) {
+            notification.textContent = message;
+            notification.className = `notification show ${type}`;
+            
+            setTimeout(() => {
+                notification.classList.remove('show');
+            }, 3000);
+        }
+
+        // Auto-generate on load
+        setTimeout(() => {
+            generateWish();
+        }, 1000);
+    </script>
+</body>
+</html>
