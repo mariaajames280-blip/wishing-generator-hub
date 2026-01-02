@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- SEO -->
+<title>Wishing Generator Hub | Birthday, Festival & Event Wishes</title>
+<meta name="description" content="Trending wishing generators for birthdays, festivals and events. Create, personalize, share and download wishes instantly.">
+<meta name="keywords" content="wishing generator, birthday wishes generator, event wishes, festival wishes">
+<meta name="robots" content="index, follow">
+
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+    font-family:'Orbitron',sans-serif;
+    background:#000;
+    color:#00ff7f;
+    text-align:center;
+    overflow-x:hidden;
+}
+
+/* HERO */
+.hero{
+    position:relative;
+    padding:80px 20px 60px;
+}
+.hero h1{
+    font-size:3rem;
+    text-shadow:0 0 30px #00ff7f;
+    animation:fadeDown 1.2s ease;
+}
+.hero p{
+    margin-top:10px;
+    opacity:.85;
+}
+
+/* SEARCH */
+.search-box{
+    margin:30px auto;
+    max-width:400px;
+}
+.search-box input{
+    width:100%;
+    padding:12px 15px;
+    border-radius:30px;
+    border:2px solid #00ff7f;
+    font-size:1rem;
+    background:#111;
+    color:#00ff7f;
+}
+.search-box input:focus{
+    outline:none;
+    box-shadow:0 0 15px #00ff7f;
+}
+
+/* FILTER */
+.filters{
+    margin:20px 0;
+}
+.filters button{
+    background:#000;
+    color:#00ff7f;
+    border:1px solid #00ff7f;
+    padding:8px 15px;
+    margin:5px;
+    border-radius:20px;
+    cursor:pointer;
+    transition:.3s;
+}
+.filters button:hover{
+    background:#00ff7f;
+    color:#000;
+}
+.filters button.active{
+    background:#00ff7f;
+    color:#000;
+    font-weight:bold;
+}
+
+/* GRID */
+.tools{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+    max-width:1200px;
+    margin:30px auto 60px;
+    padding:0 20px;
+}
+.tool{
+    border:2px solid #00ff7f;
+    border-radius:15px;
+    padding:25px;
+    cursor:pointer;
+    transition:.3s;
+    box-shadow:0 0 15px #00ff7f33;
+    animation:fadeUp .6s ease;
+    background:rgba(0,0,0,0.7);
+    position:relative;
+    overflow:hidden;
+}
+.tool:hover{
+    transform:translateY(-8px) scale(1.05);
+    box-shadow:0 0 30px #00ff7f;
+    background:rgba(0,255,127,0.1);
+}
+.tool span{
+    font-size:.8rem;
+    opacity:.8;
+}
+
+/* BADGE */
+.badge{
+    display:inline-block;
+    background:#00ff7f;
+    color:#000;
+    font-size:.7rem;
+    padding:3px 8px;
+    border-radius:20px;
+    margin-bottom:8px;
+    font-weight:bold;
+}
+
+/* FOOTER */
+footer{
+    font-size:.8rem;
+    opacity:.6;
+    margin-bottom:20px;
+    padding:20px;
+    border-top:1px solid #00ff7f33;
+}
+
+/* ANIMATIONS */
+@keyframes fadeDown{
+    from{opacity:0;transform:translateY(-40px)}
+    to{opacity:1;transform:translateY(0)}
+}
+@keyframes fadeUp{
+    from{opacity:0;transform:translateY(30px)}
+    to{opacity:1;transform:translateY(0)}
+}
+
+/* SNOW CANVAS */
+#snow{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    z-index:-1;
+    pointer-events:none;
+}
+
+/* STATUS INDICATOR */
+.status{
+    position:absolute;
+    top:10px;
+    right:10px;
+    width:10px;
+    height:10px;
+    border-radius:50%;
+    background:#00ff7f;
+    box-shadow:0 0 10px #00ff7f;
+}
+
+/* HUB INFO */
+.hub-info{
+    max-width:800px;
+    margin:20px auto;
+    padding:20px;
+    border:1px solid #00ff7f33;
+    border-radius:10px;
+    background:rgba(0,255,127,0.05);
+}
+.hub-info h2{
+    margin-bottom:10px;
+    color:#00ff7f;
+}
+.hub-info p{
+    opacity:.8;
+    line-height:1.6;
+}
+
+/* SNOW COUNTER */
+.snow-counter{
+    position:fixed;
+    bottom:10px;
+    right:10px;
+    font-size:0.8rem;
+    opacity:0.3;
+    z-index:100;
+}
+</style>
+</head>
+
+<body>
+
+<canvas id="snow"></canvas>
+
+<section class="hero">
+    <h1>✨ Wishing Generator Hub ✨</h1>
+    <p>Create • Personalize • Share Beautiful Wishes</p>
+
+    <div class="search-box">
+        <input type="text" id="search" placeholder="Search wishing generator...">
+    </div>
+
+    <div class="filters">
+        <button class="active" onclick="filterTools('all')">All</button>
+        <button onclick="filterTools('birthday')">Birthday</button>
+        <button onclick="filterTools('festival')">Festival</button>
+        <button onclick="filterTools('event')">Event</button>
+    </div>
+</section>
+
+<section class="tools" id="toolList"></section>
+
+<footer>
+© 2026 Wishing Generator Hub
+</footer>
+
+<div class="snow-counter">❄️ Snowflakes</div>
+
+<script>
+/* AUTO CONNECT GENERATORS - USING YOUR EXACT FILENAMES */
+const tools = [
+    {
+        name: "Birthday Wishes Generator",
+        file: "birthday-wishes-generator.html", 
+        cat: "birthday",
+        badge: "🔥 Trending"
+    },
+    {
+        name: "Anniversary Wishes Generator", 
+        file: "anniversary-wishes-generator-pro.html", 
+        cat: "event",
+        badge: "❤️ Popular"
+    },
+    {
+        name: "Eid Wishes Generator", 
+        file: "eid-wishes-generator-pro.html", 
+        cat: "festival",
+        badge: "🕌 Hot"
+    },
+    {
+        name: "Festival Wishes Generator", 
+        file: "festival-wishes-generator-pro.html", 
+        cat: "festival"
+    },
+    {
+        name: "Christmas Wishes Generator", 
+        file: "christmas-wishes-generator-pro.html", 
+        cat: "event",
+        badge: "🎄 Christmas"
+    },
+    {
+        name: "New Year Wishes Generator", 
+        file: "newyear-wishes-generator.html", 
+        cat: "event",
+        badge: "🎆 Viral"
+    }, // ← ADD THIS COMMA HERE!
+    {
+        name: "Ramadan Wishes Generator Pro", 
+        file: "ramadan-wishes-generator-pro.html", 
+        cat: "festival",
+        badge: "🕌 Ramadan"
+      }
+    {
+        "name": "diwali-card-tool.html",
+        "file": "diwali-card-tool.html",
+        "cat": "festival",
+        "badge": "🪔 Diwali"
+      }
+
+    
+];
+
+const list = document.getElementById("toolList");
+
+function render(data){
+ list.innerHTML="";
+ data.forEach(t=>{
+   list.innerHTML+=`
+    <div class="tool" data-cat="${t.cat}" onclick="window.open('${t.file}', '_blank')">
+     ${t.badge?`<div class="badge">${t.badge}</div>`:""}
+     <h3>${t.name}</h3>
+     <span>${t.cat.toUpperCase()} Wishes</span>
+    </div>`;
+ });
+}
+render(tools);
+
+/* SEARCH */
+document.getElementById("search").addEventListener("input",e=>{
+ const v=e.target.value.toLowerCase();
+ render(tools.filter(t=>t.name.toLowerCase().includes(v)));
+});
+
+/* FILTER */
+function filterTools(c){
+ if(c==="all") render(tools);
+ else render(tools.filter(t=>t.cat===c));
+}
+
+/* SNOWFALL - YOUR EXACT CODE */
+const c=document.getElementById("snow"),x=c.getContext("2d");
+c.width=innerWidth;c.height=innerHeight;
+let s=[];
+for(let i=0;i<80;i++)s.push({x:Math.random()*c.width,y:Math.random()*c.height,r:Math.random()*3+1});
+(function snow(){
+ x.clearRect(0,0,c.width,c.height);
+ x.fillStyle="#00ff7f";
+ s.forEach(f=>{
+   x.beginPath();
+   x.arc(f.x,f.y,f.r,0,Math.PI*2);
+   x.fill();
+   f.y+=1;if(f.y>c.height)f.y=0;
+ });
+ requestAnimationFrame(snow);
+})();
+
+// Handle window resize
+window.addEventListener('resize', function() {
+    c.width = innerWidth;
+    c.height = innerHeight;
+});
+
+// Debug: Show tool links in console
+console.log("🔗 Your generator links:");
+tools.forEach(t => {
+    console.log(`✅ ${t.name}: ${window.location.origin}/${t.file}`);
+});
+</script>
+
+<!-- SCHEMA -->
+<script type="application/ld+json">
+{
+ "@context":"https://schema.org",
+ "@type":"WebSite",
+ "name":"Wishing Generator Hub",
+ "url":"https://mariaajames280-blip.github.io/wishing-generator-hub/",
+ "potentialAction":{
+   "@type":"SearchAction",
+   "target":"https://mariaajames280-blip.github.io/wishing-generator-hub/?q={search_term_string}",
+   "query-input":"required name=search_term_string"
+ }
+}
+</script>
+
+</body>
+</html>
