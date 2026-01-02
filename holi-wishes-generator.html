@@ -435,7 +435,7 @@
         }
         
         .btn {
-            padding: 1rem 2rem;
+            padding: 1rem 1.8rem;
             border-radius: 12px;
             font-size: 1rem;
             font-weight: 600;
@@ -482,6 +482,113 @@
             transform: translateY(-3px);
         }
         
+        .btn-whatsapp {
+            background: #25D366;
+            color: white;
+        }
+        
+        .btn-whatsapp:hover {
+            background: #1da851;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3);
+        }
+        
+        /* Share Options Modal */
+        .share-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 10000;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .share-modal.active {
+            display: flex;
+        }
+        
+        .share-modal-content {
+            background: var(--dark-gray);
+            border-radius: 20px;
+            padding: 2.5rem;
+            max-width: 500px;
+            width: 90%;
+            border: 2px solid var(--primary);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+        }
+        
+        .share-modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .share-modal-title {
+            font-size: 1.5rem;
+            color: var(--primary);
+        }
+        
+        .share-modal-close {
+            background: none;
+            border: none;
+            color: var(--text-secondary);
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+        
+        .share-modal-close:hover {
+            color: var(--primary);
+        }
+        
+        .share-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 15px;
+            margin-bottom: 2rem;
+        }
+        
+        .share-option {
+            background: var(--black);
+            border: 1px solid var(--light-gray);
+            border-radius: 12px;
+            padding: 1.5rem 1rem;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .share-option:hover {
+            border-color: var(--primary);
+            transform: translateY(-5px);
+        }
+        
+        .share-option i {
+            font-size: 2rem;
+            margin-bottom: 0.8rem;
+        }
+        
+        .share-option.whatsapp {
+            color: #25D366;
+        }
+        
+        .share-option.facebook {
+            color: #1877F2;
+        }
+        
+        .share-option.twitter {
+            color: #1DA1F2;
+        }
+        
+        .share-option.copy {
+            color: var(--primary);
+        }
+        
         /* File Name Input */
         .filename-input {
             margin-top: 1.5rem;
@@ -500,53 +607,6 @@
             color: var(--primary);
             font-family: monospace;
             font-size: 0.9rem;
-        }
-        
-        /* Features Section */
-        .features {
-            max-width: 1400px;
-            margin: 3rem auto;
-            padding: 0 1.5rem;
-        }
-        
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-        
-        .feature-card {
-            background: var(--dark-gray);
-            border-radius: 15px;
-            padding: 2rem;
-            text-align: center;
-            border: 1px solid var(--light-gray);
-            transition: all 0.3s ease;
-        }
-        
-        .feature-card:hover {
-            border-color: var(--primary);
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
-        }
-        
-        .feature-icon {
-            font-size: 2.5rem;
-            color: var(--primary);
-            margin-bottom: 1.2rem;
-        }
-        
-        .feature-title {
-            font-size: 1.3rem;
-            font-weight: 600;
-            margin-bottom: 0.8rem;
-            color: var(--text);
-        }
-        
-        .feature-desc {
-            color: var(--text-secondary);
-            font-size: 0.95rem;
         }
         
         /* Footer */
@@ -592,12 +652,16 @@
             
             .btn {
                 min-width: 140px;
-                padding: 0.9rem 1.5rem;
+                padding: 0.9rem 1.2rem;
             }
             
             .wish-templates,
             .card-styles {
                 grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            }
+            
+            .action-buttons {
+                justify-content: center;
             }
         }
         
@@ -728,7 +792,7 @@
                     <textarea class="form-control" id="message" placeholder="Write your Holi wish message here...">May your life be filled with vibrant colors, happiness, and joy this Holi! Wishing you a festival full of fun and memorable moments.</textarea>
                     
                     <div class="wish-templates">
-                        <div class="wish-template" data-wish="May the vibrant colors of Holi fill your life with happiness, peace, and prosperity. Happy Holi!">Traditional</div>
+                        <div class="wish-template active" data-wish="May the vibrant colors of Holi fill your life with happiness, peace, and prosperity. Happy Holi!">Traditional</div>
                         <div class="wish-template" data-wish="Let's paint the town red, blue, green, and every color of joy! Wishing you the happiest Holi filled with laughter and fun.">Colorful</div>
                         <div class="wish-template" data-wish="May this Holi bring colors of health, wealth, and success into your life. Have a safe and wonderful Holi celebration!">Prosperity</div>
                         <div class="wish-template" data-wish="Wishing you a Holi as bright and beautiful as the colors we play with. May your day be filled with joy and sweet moments!">Joyful</div>
@@ -813,7 +877,7 @@
                     
                     <div class="card-footer">
                         <div class="card-sender" id="previewSender">From: Happy Friends</div>
-                        <div class="card-hashtag">#HappyHoli</div>
+                        <div class="card-hashtag" id="previewHashtag">#HappyHoli</div>
                         <div class="card-recipient" id="previewRecipient">To: Colorful Friends</div>
                     </div>
                 </div>
@@ -822,50 +886,56 @@
                     <button class="btn btn-primary" id="downloadBtn">
                         <i class="fas fa-download"></i> Download Card
                     </button>
-                    <button class="btn btn-secondary" id="shareBtn">
-                        <i class="fas fa-share-alt"></i> Share Wish
+                    <button class="btn btn-secondary" id="shareModalBtn">
+                        <i class="fas fa-share-alt"></i> Share
                     </button>
-                    <button class="btn btn-tertiary" id="copyBtn">
-                        <i class="fas fa-copy"></i> Copy Text
+                    <button class="btn btn-whatsapp" id="whatsappBtn">
+                        <i class="fab fa-whatsapp"></i> WhatsApp
                     </button>
                 </div>
             </div>
         </div>
     </div>
     
-    <!-- Features Section -->
-    <section class="features">
-        <h2 style="text-align: center; color: var(--primary); margin-bottom: 1rem;">Why Choose Our Holi Generator?</h2>
-        <p style="text-align: center; color: var(--text-secondary); max-width: 800px; margin: 0 auto 2rem;">
-            Create professional Holi greeting cards in minutes with our advanced features
-        </p>
-        
-        <div class="features-grid">
-            <div class="feature-card">
-                <i class="fas fa-bolt feature-icon"></i>
-                <h3 class="feature-title">Quick Generation</h3>
-                <p class="feature-desc">Create beautiful Holi cards in seconds with our intuitive interface and templates.</p>
+    <!-- Share Modal -->
+    <div class="share-modal" id="shareModal">
+        <div class="share-modal-content">
+            <div class="share-modal-header">
+                <h3 class="share-modal-title">Share Holi Wishes</h3>
+                <button class="share-modal-close" id="closeShareModal">&times;</button>
             </div>
             
-            <div class="feature-card">
-                <i class="fas fa-palette feature-icon"></i>
-                <h3 class="feature-title">Vibrant Colors</h3>
-                <p class="feature-desc">Multiple color schemes to match the festive spirit of Holi festival of colors.</p>
+            <p style="margin-bottom: 1.5rem; color: var(--text-secondary);">Choose how you want to share your Holi wishes:</p>
+            
+            <div class="share-options">
+                <div class="share-option whatsapp" id="shareWhatsApp">
+                    <i class="fab fa-whatsapp"></i>
+                    <div>WhatsApp</div>
+                </div>
+                
+                <div class="share-option facebook" id="shareFacebook">
+                    <i class="fab fa-facebook"></i>
+                    <div>Facebook</div>
+                </div>
+                
+                <div class="share-option twitter" id="shareTwitter">
+                    <i class="fab fa-twitter"></i>
+                    <div>Twitter</div>
+                </div>
+                
+                <div class="share-option copy" id="shareCopy">
+                    <i class="fas fa-copy"></i>
+                    <div>Copy Text</div>
+                </div>
             </div>
             
-            <div class="feature-card">
-                <i class="fas fa-download feature-icon"></i>
-                <h3 class="feature-title">High Quality</h3>
-                <p class="feature-desc">Download your cards as high-resolution PNG images for printing or sharing.</p>
-            </div>
-            
-            <div class="feature-card">
-                <i class="fas fa-share-alt feature-icon"></i>
-                <h3 class="feature-title">Easy Sharing</h3>
-                <p class="feature-desc">Share your Holi wishes directly to social media or messaging apps with one click.</p>
+            <div style="margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid var(--light-gray);">
+                <p style="color: var(--text-secondary); font-size: 0.9rem;">
+                    <i class="fas fa-info-circle"></i> Your wish will be shared as text message. To share the card image, download it first.
+                </p>
             </div>
         </div>
-    </section>
+    </div>
     
     <!-- Footer -->
     <footer class="footer">
@@ -881,7 +951,7 @@
     
     <!-- Toast Notification -->
     <div class="toast" id="toast">
-        <i class="fas fa-check-circle toast-icon"></i>
+        <i class="fas fa-check-circle toast-icon" id="toastIcon"></i>
         <div>
             <strong id="toastTitle">Success!</strong>
             <p id="toastMessage">Your Holi card has been generated successfully.</p>
@@ -901,8 +971,8 @@
             const generateBtn = document.getElementById('generateBtn');
             const resetBtn = document.getElementById('resetBtn');
             const downloadBtn = document.getElementById('downloadBtn');
-            const shareBtn = document.getElementById('shareBtn');
-            const copyBtn = document.getElementById('copyBtn');
+            const shareModalBtn = document.getElementById('shareModalBtn');
+            const whatsappBtn = document.getElementById('whatsappBtn');
             const charCount = document.getElementById('charCount');
             
             // Preview elements
@@ -910,11 +980,20 @@
             const previewMessage = document.getElementById('previewMessage');
             const previewSender = document.getElementById('previewSender');
             const previewRecipient = document.getElementById('previewRecipient');
+            const previewHashtag = document.getElementById('previewHashtag');
             const filenamePreview = document.getElementById('filenamePreview');
             const cardPreview = document.getElementById('cardPreview');
             const holiEffects = document.getElementById('holiEffects');
             const holiBg = document.getElementById('holiBg');
             const cardStyleBadge = document.getElementById('cardStyleBadge');
+            
+            // Modal elements
+            const shareModal = document.getElementById('shareModal');
+            const closeShareModal = document.getElementById('closeShareModal');
+            const shareWhatsApp = document.getElementById('shareWhatsApp');
+            const shareFacebook = document.getElementById('shareFacebook');
+            const shareTwitter = document.getElementById('shareTwitter');
+            const shareCopy = document.getElementById('shareCopy');
             
             // UI Elements
             const wishTemplates = document.querySelectorAll('.wish-template');
@@ -924,6 +1003,7 @@
             const toast = document.getElementById('toast');
             const toastTitle = document.getElementById('toastTitle');
             const toastMessage = document.getElementById('toastMessage');
+            const toastIcon = document.getElementById('toastIcon');
             
             // Current settings
             let currentColor = '#00FF11';
@@ -955,12 +1035,20 @@
                     });
                 });
                 
-                // Color option click events
+                // Color option click events - FIXED
                 colorOptions.forEach(option => {
                     option.addEventListener('click', function() {
                         colorOptions.forEach(opt => opt.classList.remove('active'));
                         this.classList.add('active');
                         currentColor = this.getAttribute('data-color');
+                        
+                        // Update CSS variable
+                        document.documentElement.style.setProperty('--primary', currentColor);
+                        
+                        // Calculate darker shade for hover
+                        const darker = shadeColor(currentColor, -20);
+                        document.documentElement.style.setProperty('--primary-dark', darker);
+                        
                         updatePreview();
                     });
                 });
@@ -994,6 +1082,8 @@
                     colorOptions.forEach(opt => opt.classList.remove('active'));
                     colorOptions[0].classList.add('active');
                     currentColor = '#00FF11';
+                    document.documentElement.style.setProperty('--primary', '#00FF11');
+                    document.documentElement.style.setProperty('--primary-dark', '#00CC0E');
                     
                     // Reset style selection
                     cardStyles.forEach(s => s.classList.remove('active'));
@@ -1010,11 +1100,31 @@
                 // Download button
                 downloadBtn.addEventListener('click', downloadCard);
                 
-                // Share button
-                shareBtn.addEventListener('click', shareWish);
+                // Share modal button
+                shareModalBtn.addEventListener('click', function() {
+                    shareModal.classList.add('active');
+                });
                 
-                // Copy button
-                copyBtn.addEventListener('click', copyWishText);
+                // Close share modal
+                closeShareModal.addEventListener('click', function() {
+                    shareModal.classList.remove('active');
+                });
+                
+                // Close modal when clicking outside
+                shareModal.addEventListener('click', function(e) {
+                    if (e.target === shareModal) {
+                        shareModal.classList.remove('active');
+                    }
+                });
+                
+                // WhatsApp direct button
+                whatsappBtn.addEventListener('click', shareToWhatsApp);
+                
+                // Share options in modal
+                shareWhatsApp.addEventListener('click', shareToWhatsApp);
+                shareFacebook.addEventListener('click', shareToFacebook);
+                shareTwitter.addEventListener('click', shareToTwitter);
+                shareCopy.addEventListener('click', copyWishText);
                 
                 // Input events for real-time preview
                 senderNameInput.addEventListener('input', updatePreview);
@@ -1029,7 +1139,7 @@
                 if (count > 500) {
                     charCount.style.color = '#FF6B6B';
                 } else {
-                    charCount.style.color = '#00FF11';
+                    charCount.style.color = currentColor;
                 }
             }
             
@@ -1039,30 +1149,29 @@
                 filenamePreview.textContent = `${filename}.png`;
             }
             
-            // Update card preview
+            // Update card preview - FIXED ACCENT COLOR
             function updatePreview() {
                 // Update text content
                 previewSender.textContent = senderNameInput.value || 'From: Your Name';
                 previewRecipient.textContent = recipientNameInput.value || 'To: Friend';
                 previewMessage.textContent = messageInput.value || 'Wishing you a colorful and happy Holi!';
                 
-                // Update colors
+                // Update colors with current accent color
                 previewGreeting.style.color = currentColor;
                 previewMessage.style.borderLeftColor = currentColor;
-                previewMessage.style.background = `rgba(${hexToRgb(currentColor)}, 0.05)`;
+                previewMessage.style.background = hexToRgba(currentColor, 0.05);
                 cardPreview.style.borderColor = currentColor;
-                cardPreview.style.boxShadow = `0 15px 40px rgba(${hexToRgb(currentColor)}, 0.15)`;
+                cardPreview.style.boxShadow = `0 15px 40px ${hexToRgba(currentColor, 0.15)}`;
                 
                 // Update hashtag based on style
-                const hashtag = document.querySelector('.card-hashtag');
                 if (currentStyle === 'traditional') {
-                    hashtag.textContent = '#FestivalOfColors';
+                    previewHashtag.textContent = '#FestivalOfColors';
                 } else if (currentStyle === 'colorful') {
-                    hashtag.textContent = '#PlayHoli';
+                    previewHashtag.textContent = '#PlayHoli';
                 } else if (currentStyle === 'minimal') {
-                    hashtag.textContent = '#Holi2023';
+                    previewHashtag.textContent = '#Holi2023';
                 } else {
-                    hashtag.textContent = '#HappyHoli';
+                    previewHashtag.textContent = '#HappyHoli';
                 }
                 
                 // Update greeting based on style
@@ -1142,13 +1251,34 @@
                 }
             }
             
-            // Convert hex color to RGB
-            function hexToRgb(hex) {
+            // Convert hex color to RGBA
+            function hexToRgba(hex, alpha) {
                 hex = hex.replace('#', '');
                 const r = parseInt(hex.substring(0, 2), 16);
                 const g = parseInt(hex.substring(2, 4), 16);
                 const b = parseInt(hex.substring(4, 6), 16);
-                return `${r}, ${g}, ${b}`;
+                return `rgba(${r}, ${g}, ${b}, ${alpha})`;
+            }
+            
+            // Generate darker/lighter shade of a color
+            function shadeColor(color, percent) {
+                let R = parseInt(color.substring(1,3),16);
+                let G = parseInt(color.substring(3,5),16);
+                let B = parseInt(color.substring(5,7),16);
+
+                R = parseInt(R * (100 + percent) / 100);
+                G = parseInt(G * (100 + percent) / 100);
+                B = parseInt(B * (100 + percent) / 100);
+
+                R = (R<255)?R:255;  
+                G = (G<255)?G:255;  
+                B = (B<255)?B:255;  
+
+                const RR = ((R.toString(16).length===1)?"0"+R.toString(16):R.toString(16));
+                const GG = ((G.toString(16).length===1)?"0"+G.toString(16):G.toString(16));
+                const BB = ((B.toString(16).length===1)?"0"+B.toString(16):B.toString(16));
+
+                return "#"+RR+GG+BB;
             }
             
             // Download card as image
@@ -1180,6 +1310,9 @@
                     // Hide loader
                     loader.classList.remove('active');
                     
+                    // Close share modal if open
+                    shareModal.classList.remove('active');
+                    
                     // Show success toast
                     showToast('Download Complete', `Your Holi card has been saved as "${filename}.png"`);
                 }).catch(error => {
@@ -1189,39 +1322,65 @@
                 });
             }
             
-            // Share Holi wish
-            function shareWish() {
+            // Share to WhatsApp
+            function shareToWhatsApp() {
                 const message = messageInput.value;
                 const sender = senderNameInput.value || 'Your Name';
                 const recipient = recipientNameInput.value || 'Friend';
                 
-                const shareText = `🎨 Holi Greetings for ${recipient}!\n\n${message}\n\n${sender}\n\nCreated with Holi Wishes Generator`;
+                const shareText = `🎨 *Holi Greetings for ${recipient}!* 🎨\n\n${message}\n\n${sender}\n\n_Created with Holi Wishes Generator_`;
                 
-                // Check if Web Share API is available
-                if (navigator.share) {
-                    navigator.share({
-                        title: 'Holi Wishes',
-                        text: shareText,
-                        url: window.location.href
-                    }).catch(error => {
-                        console.log('Error sharing:', error);
-                        fallbackShare(shareText);
-                    });
-                } else {
-                    fallbackShare(shareText);
-                }
+                // WhatsApp sharing URL
+                const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(shareText)}`;
+                
+                // Open WhatsApp in new tab
+                window.open(whatsappUrl, '_blank');
+                
+                // Close modal if open
+                shareModal.classList.remove('active');
+                
+                showToast('WhatsApp Ready', 'Your Holi wish is ready to share on WhatsApp!');
             }
             
-            // Fallback share method
-            function fallbackShare(shareText) {
-                // Copy to clipboard
-                navigator.clipboard.writeText(shareText).then(() => {
-                    showToast('Copied to Clipboard', 'Holi wish copied! You can now paste it in any app.');
-                }).catch(err => {
-                    console.error('Failed to copy: ', err);
-                    // If clipboard fails, show text to copy
-                    prompt('Copy this Holi wish to share:', shareText);
-                });
+            // Share to Facebook
+            function shareToFacebook() {
+                const message = messageInput.value;
+                const sender = senderNameInput.value || 'Your Name';
+                const recipient = recipientNameInput.value || 'Friend';
+                
+                const shareText = `🎨 Holi Greetings for ${recipient}! 🎨\n\n${message}\n\n${sender}`;
+                const shareUrl = window.location.href;
+                
+                // Facebook sharing URL
+                const facebookUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}&quote=${encodeURIComponent(shareText)}`;
+                
+                // Open Facebook in new tab
+                window.open(facebookUrl, '_blank', 'width=600,height=400');
+                
+                // Close modal
+                shareModal.classList.remove('active');
+                
+                showToast('Facebook Sharing', 'Opening Facebook to share your Holi wish...');
+            }
+            
+            // Share to Twitter
+            function shareToTwitter() {
+                const message = messageInput.value;
+                const sender = senderNameInput.value || 'Your Name';
+                
+                const shareText = `🎨 ${message.substring(0, 100)}... - ${sender}`;
+                const shareUrl = window.location.href;
+                
+                // Twitter sharing URL
+                const twitterUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}&url=${encodeURIComponent(shareUrl)}&hashtags=Holi,FestivalOfColors`;
+                
+                // Open Twitter in new tab
+                window.open(twitterUrl, '_blank', 'width=600,height=400');
+                
+                // Close modal
+                shareModal.classList.remove('active');
+                
+                showToast('Twitter Sharing', 'Opening Twitter to share your Holi wish...');
             }
             
             // Copy wish text
@@ -1233,6 +1392,9 @@
                 const fullText = `To: ${recipient}\n\n${message}\n\n${sender}`;
                 
                 navigator.clipboard.writeText(fullText).then(() => {
+                    // Close modal
+                    shareModal.classList.remove('active');
+                    
                     showToast('Text Copied', 'Holi wish text has been copied to clipboard.');
                 }).catch(err => {
                     console.error('Failed to copy: ', err);
