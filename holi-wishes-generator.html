@@ -1,0 +1,1269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pro Holi Wishes Generator | Festival of Colors</title>
+    <meta name="description" content="Create beautiful Holi festival greeting cards with black & green theme. Generate personalized Holi wishes to share with friends and family.">
+    <meta name="keywords" content="Holi wishes, festival of colors, Holi cards, Holi generator, green theme, festival greetings">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Dancing+Script:wght@400;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary: #00FF11;
+            --primary-dark: #00CC0E;
+            --primary-light: rgba(0, 255, 17, 0.1);
+            --black: #000000;
+            --dark-gray: #111111;
+            --gray: #222222;
+            --light-gray: #333333;
+            --white: #FFFFFF;
+            --text: #F0F0F0;
+            --text-secondary: #AAAAAA;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--black);
+            color: var(--text);
+            line-height: 1.6;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+        
+        /* Header & Hero Section */
+        .header {
+            background: linear-gradient(to bottom, rgba(0,0,0,0.9), rgba(0,0,0,0.7)), 
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="%23000000"/><circle cx="20" cy="30" r="2" fill="%2300FF11" opacity="0.3"/><circle cx="70" cy="20" r="1.5" fill="%2300FF11" opacity="0.3"/><circle cx="40" cy="60" r="1" fill="%2300FF11" opacity="0.3"/><circle cx="85" cy="70" r="2.5" fill="%2300FF11" opacity="0.3"/><circle cx="15" cy="85" r="1.8" fill="%2300FF11" opacity="0.3"/></svg>');
+            padding: 2rem 1.5rem;
+            text-align: center;
+            border-bottom: 3px solid var(--primary);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, 
+                transparent, 
+                var(--primary), 
+                var(--primary), 
+                var(--primary), 
+                transparent);
+            animation: glow 3s ease-in-out infinite alternate;
+        }
+        
+        @keyframes glow {
+            0% { opacity: 0.5; }
+            100% { opacity: 1; }
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 1rem;
+        }
+        
+        .logo-icon {
+            color: var(--primary);
+            font-size: 2.5rem;
+            text-shadow: 0 0 15px var(--primary);
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+        
+        .logo-text {
+            font-family: 'Dancing Script', cursive;
+            font-size: 3rem;
+            background: linear-gradient(45deg, var(--primary), #A0FFA8);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 0 20px rgba(0, 255, 17, 0.3);
+        }
+        
+        .tagline {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        /* Main Container */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 2.5rem;
+        }
+        
+        @media (max-width: 1024px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* Panel Styling */
+        .panel {
+            background: var(--dark-gray);
+            border-radius: 20px;
+            border: 1px solid var(--light-gray);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            overflow: hidden;
+        }
+        
+        .panel-header {
+            background: linear-gradient(90deg, var(--gray), var(--dark-gray));
+            padding: 1.5rem;
+            border-bottom: 2px solid var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .panel-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .panel-title i {
+            font-size: 1.3rem;
+        }
+        
+        .panel-content {
+            padding: 2rem;
+        }
+        
+        /* Customization Panel */
+        .form-group {
+            margin-bottom: 1.8rem;
+        }
+        
+        .form-label {
+            display: block;
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--text);
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .form-label i {
+            color: var(--primary);
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 1rem;
+            background: var(--black);
+            border: 1px solid var(--light-gray);
+            border-radius: 12px;
+            color: var(--text);
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(0, 255, 17, 0.2);
+        }
+        
+        textarea.form-control {
+            min-height: 120px;
+            resize: vertical;
+        }
+        
+        /* Wish Templates */
+        .wish-templates {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 12px;
+            margin-top: 10px;
+        }
+        
+        .wish-template {
+            background: var(--black);
+            border: 1px solid var(--light-gray);
+            border-radius: 10px;
+            padding: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+        
+        .wish-template:hover {
+            border-color: var(--primary);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 255, 17, 0.1);
+        }
+        
+        .wish-template.active {
+            background: var(--primary-light);
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+        
+        /* Color Palette */
+        .color-palette {
+            display: flex;
+            gap: 15px;
+            margin-top: 10px;
+            flex-wrap: wrap;
+        }
+        
+        .color-option {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            border: 3px solid transparent;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .color-option:hover {
+            transform: scale(1.1);
+        }
+        
+        .color-option.active {
+            border-color: var(--white);
+            transform: scale(1.1);
+            box-shadow: 0 0 15px currentColor;
+        }
+        
+        .color-option::after {
+            content: '✓';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-weight: bold;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        
+        .color-option.active::after {
+            opacity: 1;
+        }
+        
+        /* Card Styles */
+        .card-styles {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 15px;
+            margin-top: 10px;
+        }
+        
+        .card-style {
+            background: var(--black);
+            border: 1px solid var(--light-gray);
+            border-radius: 12px;
+            padding: 1.2rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+        
+        .card-style:hover {
+            border-color: var(--primary);
+            transform: translateY(-3px);
+        }
+        
+        .card-style.active {
+            background: var(--primary-light);
+            border-color: var(--primary);
+        }
+        
+        .card-style-icon {
+            font-size: 2rem;
+            margin-bottom: 0.8rem;
+            color: var(--primary);
+        }
+        
+        /* Preview Panel */
+        .preview-container {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+        
+        .preview-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .card-preview {
+            flex-grow: 1;
+            background: var(--black);
+            border-radius: 20px;
+            border: 2px solid var(--primary);
+            padding: 2.5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            box-shadow: 0 15px 40px rgba(0, 255, 17, 0.15);
+            position: relative;
+            overflow: hidden;
+            min-height: 500px;
+        }
+        
+        .holi-effects {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        .holi-particle {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            animation: float 15s infinite linear;
+        }
+        
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+        
+        .card-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .card-greeting {
+            font-family: 'Dancing Script', cursive;
+            font-size: 3rem;
+            text-align: center;
+            margin-bottom: 2rem;
+            color: var(--primary);
+            text-shadow: 0 0 10px rgba(0, 255, 17, 0.5);
+        }
+        
+        .card-message {
+            font-size: 1.3rem;
+            text-align: center;
+            line-height: 1.8;
+            padding: 1.5rem;
+            background: rgba(0, 255, 17, 0.05);
+            border-radius: 15px;
+            border-left: 4px solid var(--primary);
+            margin-bottom: 2rem;
+        }
+        
+        .card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--light-gray);
+        }
+        
+        .card-sender, .card-recipient {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+        }
+        
+        .card-hashtag {
+            color: var(--primary);
+            font-weight: 600;
+            font-size: 1.2rem;
+        }
+        
+        /* Action Buttons */
+        .action-buttons {
+            display: flex;
+            gap: 15px;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            padding: 1rem 2rem;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            border: none;
+            font-family: 'Poppins', sans-serif;
+            min-width: 160px;
+        }
+        
+        .btn-primary {
+            background: var(--primary);
+            color: var(--black);
+        }
+        
+        .btn-primary:hover {
+            background: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 255, 17, 0.3);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+        
+        .btn-secondary:hover {
+            background: var(--primary-light);
+            transform: translateY(-3px);
+        }
+        
+        .btn-tertiary {
+            background: var(--gray);
+            color: var(--text);
+        }
+        
+        .btn-tertiary:hover {
+            background: var(--light-gray);
+            transform: translateY(-3px);
+        }
+        
+        /* File Name Input */
+        .filename-input {
+            margin-top: 1.5rem;
+            padding: 1.5rem;
+            background: var(--gray);
+            border-radius: 12px;
+            border: 1px solid var(--light-gray);
+        }
+        
+        .filename-preview {
+            display: inline-block;
+            margin-top: 8px;
+            padding: 8px 15px;
+            background: var(--black);
+            border-radius: 8px;
+            color: var(--primary);
+            font-family: monospace;
+            font-size: 0.9rem;
+        }
+        
+        /* Features Section */
+        .features {
+            max-width: 1400px;
+            margin: 3rem auto;
+            padding: 0 1.5rem;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .feature-card {
+            background: var(--dark-gray);
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            border: 1px solid var(--light-gray);
+            transition: all 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1.2rem;
+        }
+        
+        .feature-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 0.8rem;
+            color: var(--text);
+        }
+        
+        .feature-desc {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+        
+        /* Footer */
+        .footer {
+            margin-top: 4rem;
+            padding: 2rem 1.5rem;
+            background: var(--dark-gray);
+            border-top: 1px solid var(--light-gray);
+            text-align: center;
+        }
+        
+        .footer-text {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+        
+        .holi-color {
+            color: var(--primary);
+            font-weight: 600;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .logo-text {
+                font-size: 2.2rem;
+            }
+            
+            .container {
+                padding: 1.5rem 1rem;
+            }
+            
+            .panel-content {
+                padding: 1.5rem;
+            }
+            
+            .card-greeting {
+                font-size: 2.2rem;
+            }
+            
+            .card-message {
+                font-size: 1.1rem;
+            }
+            
+            .btn {
+                min-width: 140px;
+                padding: 0.9rem 1.5rem;
+            }
+            
+            .wish-templates,
+            .card-styles {
+                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            }
+        }
+        
+        /* Colorful Holi Animation */
+        .holi-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+            opacity: 0.05;
+        }
+        
+        .holi-dot {
+            position: absolute;
+            border-radius: 50%;
+            animation: holiMove 20s infinite linear;
+        }
+        
+        @keyframes holiMove {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+            }
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+            }
+        }
+        
+        /* Loading Animation */
+        .loader {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 9999;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        
+        .loader.active {
+            display: flex;
+        }
+        
+        .loader-spinner {
+            width: 60px;
+            height: 60px;
+            border: 5px solid var(--gray);
+            border-top: 5px solid var(--primary);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-bottom: 20px;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        /* Toast Notification */
+        .toast {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: var(--dark-gray);
+            border-left: 5px solid var(--primary);
+            padding: 1rem 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            transform: translateX(150%);
+            transition: transform 0.4s ease;
+            z-index: 1000;
+            max-width: 350px;
+        }
+        
+        .toast.show {
+            transform: translateX(0);
+        }
+        
+        .toast-icon {
+            color: var(--primary);
+            font-size: 1.5rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Holi Background Animation -->
+    <div class="holi-bg" id="holiBg"></div>
+    
+    <!-- Header -->
+    <header class="header">
+        <div class="logo">
+            <i class="fas fa-palette logo-icon"></i>
+            <h1 class="logo-text">Holi Wishes Generator</h1>
+        </div>
+        <p class="tagline">Create vibrant Holi festival greeting cards with our professional generator. Customize, download, and share colorful wishes!</p>
+    </header>
+    
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Customization Panel -->
+        <div class="panel">
+            <div class="panel-header">
+                <h2 class="panel-title"><i class="fas fa-sliders-h"></i> Customize Your Holi Card</h2>
+                <span class="holi-color" id="charCount">0/500</span>
+            </div>
+            <div class="panel-content">
+                <div class="form-group">
+                    <label class="form-label"><i class="fas fa-user"></i> Your Name</label>
+                    <input type="text" class="form-control" id="senderName" placeholder="Enter your name" value="From: Happy Friends">
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label"><i class="fas fa-users"></i> Recipient Name</label>
+                    <input type="text" class="form-control" id="recipientName" placeholder="Enter recipient name" value="To: Colorful Friends">
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label"><i class="fas fa-comment-alt"></i> Holi Wish Message</label>
+                    <textarea class="form-control" id="message" placeholder="Write your Holi wish message here...">May your life be filled with vibrant colors, happiness, and joy this Holi! Wishing you a festival full of fun and memorable moments.</textarea>
+                    
+                    <div class="wish-templates">
+                        <div class="wish-template" data-wish="May the vibrant colors of Holi fill your life with happiness, peace, and prosperity. Happy Holi!">Traditional</div>
+                        <div class="wish-template" data-wish="Let's paint the town red, blue, green, and every color of joy! Wishing you the happiest Holi filled with laughter and fun.">Colorful</div>
+                        <div class="wish-template" data-wish="May this Holi bring colors of health, wealth, and success into your life. Have a safe and wonderful Holi celebration!">Prosperity</div>
+                        <div class="wish-template" data-wish="Wishing you a Holi as bright and beautiful as the colors we play with. May your day be filled with joy and sweet moments!">Joyful</div>
+                        <div class="wish-template" data-wish="May the festival of colors wash away all worries and paint your life with new hopes and dreams. Happy Holi!">Hopeful</div>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label"><i class="fas fa-palette"></i> Accent Color</label>
+                    <div class="color-palette">
+                        <div class="color-option active" style="background-color: #00FF11;" data-color="#00FF11"></div>
+                        <div class="color-option" style="background-color: #FF6B6B;" data-color="#FF6B6B"></div>
+                        <div class="color-option" style="background-color: #4D96FF;" data-color="#4D96FF"></div>
+                        <div class="color-option" style="background-color: #FFD93D;" data-color="#FFD93D"></div>
+                        <div class="color-option" style="background-color: #6BCF7F;" data-color="#6BCF7F"></div>
+                        <div class="color-option" style="background-color: #9D4EDD;" data-color="#9D4EDD"></div>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label"><i class="fas fa-layer-group"></i> Card Style</label>
+                    <div class="card-styles">
+                        <div class="card-style active" data-style="modern">
+                            <i class="fas fa-gem card-style-icon"></i>
+                            <div>Modern</div>
+                        </div>
+                        <div class="card-style" data-style="traditional">
+                            <i class="fas fa-pagoda card-style-icon"></i>
+                            <div>Traditional</div>
+                        </div>
+                        <div class="card-style" data-style="colorful">
+                            <i class="fas fa-paint-brush card-style-icon"></i>
+                            <div>Colorful</div>
+                        </div>
+                        <div class="card-style" data-style="minimal">
+                            <i class="fas fa-minimize card-style-icon"></i>
+                            <div>Minimal</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="filename-input">
+                    <label class="form-label"><i class="fas fa-file-download"></i> Download File Name</label>
+                    <input type="text" class="form-control" id="filename" placeholder="Enter file name for download" value="Holi_Wishes_Card">
+                    <div class="filename-preview">File will be saved as: <span id="filenamePreview">Holi_Wishes_Card.png</span></div>
+                </div>
+                
+                <div class="action-buttons">
+                    <button class="btn btn-primary" id="generateBtn">
+                        <i class="fas fa-magic"></i> Generate Card
+                    </button>
+                    <button class="btn btn-secondary" id="resetBtn">
+                        <i class="fas fa-redo"></i> Reset
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Preview Panel -->
+        <div class="panel">
+            <div class="panel-header">
+                <h2 class="panel-title"><i class="fas fa-eye"></i> Card Preview</h2>
+                <span class="holi-color">Live Preview</span>
+            </div>
+            <div class="panel-content preview-container">
+                <div class="preview-header">
+                    <h3>Your Holi Greeting Card</h3>
+                    <span class="holi-color" id="cardStyleBadge">Modern Style</span>
+                </div>
+                
+                <div class="card-preview" id="cardPreview">
+                    <!-- Holi effects -->
+                    <div class="holi-effects" id="holiEffects"></div>
+                    
+                    <!-- Card content -->
+                    <div class="card-content">
+                        <h1 class="card-greeting" id="previewGreeting">Happy Holi!</h1>
+                        <div class="card-message" id="previewMessage">
+                            May your life be filled with vibrant colors, happiness, and joy this Holi! Wishing you a festival full of fun and memorable moments.
+                        </div>
+                    </div>
+                    
+                    <div class="card-footer">
+                        <div class="card-sender" id="previewSender">From: Happy Friends</div>
+                        <div class="card-hashtag">#HappyHoli</div>
+                        <div class="card-recipient" id="previewRecipient">To: Colorful Friends</div>
+                    </div>
+                </div>
+                
+                <div class="action-buttons">
+                    <button class="btn btn-primary" id="downloadBtn">
+                        <i class="fas fa-download"></i> Download Card
+                    </button>
+                    <button class="btn btn-secondary" id="shareBtn">
+                        <i class="fas fa-share-alt"></i> Share Wish
+                    </button>
+                    <button class="btn btn-tertiary" id="copyBtn">
+                        <i class="fas fa-copy"></i> Copy Text
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Features Section -->
+    <section class="features">
+        <h2 style="text-align: center; color: var(--primary); margin-bottom: 1rem;">Why Choose Our Holi Generator?</h2>
+        <p style="text-align: center; color: var(--text-secondary); max-width: 800px; margin: 0 auto 2rem;">
+            Create professional Holi greeting cards in minutes with our advanced features
+        </p>
+        
+        <div class="features-grid">
+            <div class="feature-card">
+                <i class="fas fa-bolt feature-icon"></i>
+                <h3 class="feature-title">Quick Generation</h3>
+                <p class="feature-desc">Create beautiful Holi cards in seconds with our intuitive interface and templates.</p>
+            </div>
+            
+            <div class="feature-card">
+                <i class="fas fa-palette feature-icon"></i>
+                <h3 class="feature-title">Vibrant Colors</h3>
+                <p class="feature-desc">Multiple color schemes to match the festive spirit of Holi festival of colors.</p>
+            </div>
+            
+            <div class="feature-card">
+                <i class="fas fa-download feature-icon"></i>
+                <h3 class="feature-title">High Quality</h3>
+                <p class="feature-desc">Download your cards as high-resolution PNG images for printing or sharing.</p>
+            </div>
+            
+            <div class="feature-card">
+                <i class="fas fa-share-alt feature-icon"></i>
+                <h3 class="feature-title">Easy Sharing</h3>
+                <p class="feature-desc">Share your Holi wishes directly to social media or messaging apps with one click.</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <p class="footer-text">© 2023 Pro Holi Wishes Generator | Create, Customize, and Share Beautiful Holi Greeting Cards</p>
+        <p class="footer-text">Made with <span class="holi-color">♥</span> for the Festival of Colors</p>
+    </footer>
+    
+    <!-- Loader -->
+    <div class="loader" id="loader">
+        <div class="loader-spinner"></div>
+        <p style="color: var(--primary);">Generating your Holi card...</p>
+    </div>
+    
+    <!-- Toast Notification -->
+    <div class="toast" id="toast">
+        <i class="fas fa-check-circle toast-icon"></i>
+        <div>
+            <strong id="toastTitle">Success!</strong>
+            <p id="toastMessage">Your Holi card has been generated successfully.</p>
+        </div>
+    </div>
+    
+    <!-- Include html2canvas for capturing the card as an image -->
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // DOM Elements
+            const senderNameInput = document.getElementById('senderName');
+            const recipientNameInput = document.getElementById('recipientName');
+            const messageInput = document.getElementById('message');
+            const filenameInput = document.getElementById('filename');
+            const generateBtn = document.getElementById('generateBtn');
+            const resetBtn = document.getElementById('resetBtn');
+            const downloadBtn = document.getElementById('downloadBtn');
+            const shareBtn = document.getElementById('shareBtn');
+            const copyBtn = document.getElementById('copyBtn');
+            const charCount = document.getElementById('charCount');
+            
+            // Preview elements
+            const previewGreeting = document.getElementById('previewGreeting');
+            const previewMessage = document.getElementById('previewMessage');
+            const previewSender = document.getElementById('previewSender');
+            const previewRecipient = document.getElementById('previewRecipient');
+            const filenamePreview = document.getElementById('filenamePreview');
+            const cardPreview = document.getElementById('cardPreview');
+            const holiEffects = document.getElementById('holiEffects');
+            const holiBg = document.getElementById('holiBg');
+            const cardStyleBadge = document.getElementById('cardStyleBadge');
+            
+            // UI Elements
+            const wishTemplates = document.querySelectorAll('.wish-template');
+            const colorOptions = document.querySelectorAll('.color-option');
+            const cardStyles = document.querySelectorAll('.card-style');
+            const loader = document.getElementById('loader');
+            const toast = document.getElementById('toast');
+            const toastTitle = document.getElementById('toastTitle');
+            const toastMessage = document.getElementById('toastMessage');
+            
+            // Current settings
+            let currentColor = '#00FF11';
+            let currentStyle = 'modern';
+            
+            // Initialize the app
+            function init() {
+                updatePreview();
+                updateFilenamePreview();
+                createHoliBackground();
+                createHoliEffects();
+                
+                // Character count for message
+                updateCharCount();
+                messageInput.addEventListener('input', updateCharCount);
+                
+                // File name preview update
+                filenameInput.addEventListener('input', updateFilenamePreview);
+                
+                // Wish template click events
+                wishTemplates.forEach(template => {
+                    template.addEventListener('click', function() {
+                        wishTemplates.forEach(t => t.classList.remove('active'));
+                        this.classList.add('active');
+                        const wishText = this.getAttribute('data-wish');
+                        messageInput.value = wishText;
+                        updatePreview();
+                        updateCharCount();
+                    });
+                });
+                
+                // Color option click events
+                colorOptions.forEach(option => {
+                    option.addEventListener('click', function() {
+                        colorOptions.forEach(opt => opt.classList.remove('active'));
+                        this.classList.add('active');
+                        currentColor = this.getAttribute('data-color');
+                        updatePreview();
+                    });
+                });
+                
+                // Card style click events
+                cardStyles.forEach(style => {
+                    style.addEventListener('click', function() {
+                        cardStyles.forEach(s => s.classList.remove('active'));
+                        this.classList.add('active');
+                        currentStyle = this.getAttribute('data-style');
+                        cardStyleBadge.textContent = this.textContent.trim() + ' Style';
+                        updatePreview();
+                    });
+                });
+                
+                // Generate button
+                generateBtn.addEventListener('click', updatePreview);
+                
+                // Reset button
+                resetBtn.addEventListener('click', function() {
+                    senderNameInput.value = 'From: Happy Friends';
+                    recipientNameInput.value = 'To: Colorful Friends';
+                    messageInput.value = 'May your life be filled with vibrant colors, happiness, and joy this Holi! Wishing you a festival full of fun and memorable moments.';
+                    filenameInput.value = 'Holi_Wishes_Card';
+                    
+                    // Reset template selection
+                    wishTemplates.forEach(t => t.classList.remove('active'));
+                    wishTemplates[0].classList.add('active');
+                    
+                    // Reset color selection
+                    colorOptions.forEach(opt => opt.classList.remove('active'));
+                    colorOptions[0].classList.add('active');
+                    currentColor = '#00FF11';
+                    
+                    // Reset style selection
+                    cardStyles.forEach(s => s.classList.remove('active'));
+                    cardStyles[0].classList.add('active');
+                    currentStyle = 'modern';
+                    cardStyleBadge.textContent = 'Modern Style';
+                    
+                    updatePreview();
+                    updateFilenamePreview();
+                    updateCharCount();
+                    showToast('Reset Complete', 'All settings have been reset to default values.');
+                });
+                
+                // Download button
+                downloadBtn.addEventListener('click', downloadCard);
+                
+                // Share button
+                shareBtn.addEventListener('click', shareWish);
+                
+                // Copy button
+                copyBtn.addEventListener('click', copyWishText);
+                
+                // Input events for real-time preview
+                senderNameInput.addEventListener('input', updatePreview);
+                recipientNameInput.addEventListener('input', updatePreview);
+                messageInput.addEventListener('input', updatePreview);
+            }
+            
+            // Update character count
+            function updateCharCount() {
+                const count = messageInput.value.length;
+                charCount.textContent = `${count}/500`;
+                if (count > 500) {
+                    charCount.style.color = '#FF6B6B';
+                } else {
+                    charCount.style.color = '#00FF11';
+                }
+            }
+            
+            // Update filename preview
+            function updateFilenamePreview() {
+                const filename = filenameInput.value.trim() || 'Holi_Wishes_Card';
+                filenamePreview.textContent = `${filename}.png`;
+            }
+            
+            // Update card preview
+            function updatePreview() {
+                // Update text content
+                previewSender.textContent = senderNameInput.value || 'From: Your Name';
+                previewRecipient.textContent = recipientNameInput.value || 'To: Friend';
+                previewMessage.textContent = messageInput.value || 'Wishing you a colorful and happy Holi!';
+                
+                // Update colors
+                previewGreeting.style.color = currentColor;
+                previewMessage.style.borderLeftColor = currentColor;
+                previewMessage.style.background = `rgba(${hexToRgb(currentColor)}, 0.05)`;
+                cardPreview.style.borderColor = currentColor;
+                cardPreview.style.boxShadow = `0 15px 40px rgba(${hexToRgb(currentColor)}, 0.15)`;
+                
+                // Update hashtag based on style
+                const hashtag = document.querySelector('.card-hashtag');
+                if (currentStyle === 'traditional') {
+                    hashtag.textContent = '#FestivalOfColors';
+                } else if (currentStyle === 'colorful') {
+                    hashtag.textContent = '#PlayHoli';
+                } else if (currentStyle === 'minimal') {
+                    hashtag.textContent = '#Holi2023';
+                } else {
+                    hashtag.textContent = '#HappyHoli';
+                }
+                
+                // Update greeting based on style
+                if (currentStyle === 'traditional') {
+                    previewGreeting.textContent = 'शुभ होली';
+                    previewGreeting.style.fontFamily = "'Playfair Display', serif";
+                } else if (currentStyle === 'colorful') {
+                    previewGreeting.textContent = 'HOLI 🎨';
+                    previewGreeting.style.fontFamily = "'Poppins', sans-serif";
+                } else if (currentStyle === 'minimal') {
+                    previewGreeting.textContent = 'Happy Holi';
+                    previewGreeting.style.fontFamily = "'Poppins', sans-serif";
+                    previewGreeting.style.fontSize = '2.5rem';
+                } else {
+                    previewGreeting.textContent = 'Happy Holi!';
+                    previewGreeting.style.fontFamily = "'Dancing Script', cursive";
+                    previewGreeting.style.fontSize = '3rem';
+                }
+                
+                // Recreate Holi effects with new color
+                createHoliEffects();
+                
+                showToast('Preview Updated', 'Your Holi card preview has been updated.');
+            }
+            
+            // Create Holi background animation
+            function createHoliBackground() {
+                holiBg.innerHTML = '';
+                const colors = ['#00FF11', '#FF6B6B', '#4D96FF', '#FFD93D', '#6BCF7F', '#9D4EDD'];
+                
+                for (let i = 0; i < 50; i++) {
+                    const dot = document.createElement('div');
+                    dot.className = 'holi-dot';
+                    
+                    // Random properties
+                    const size = Math.random() * 30 + 10;
+                    const color = colors[Math.floor(Math.random() * colors.length)];
+                    const left = Math.random() * 100;
+                    const duration = Math.random() * 30 + 20;
+                    const delay = Math.random() * 20;
+                    
+                    dot.style.width = `${size}px`;
+                    dot.style.height = `${size}px`;
+                    dot.style.background = color;
+                    dot.style.left = `${left}%`;
+                    dot.style.animationDuration = `${duration}s`;
+                    dot.style.animationDelay = `${delay}s`;
+                    
+                    holiBg.appendChild(dot);
+                }
+            }
+            
+            // Create Holi effects on card
+            function createHoliEffects() {
+                holiEffects.innerHTML = '';
+                const colors = [currentColor, '#FF6B6B', '#4D96FF', '#FFD93D', '#9D4EDD'];
+                
+                for (let i = 0; i < 30; i++) {
+                    const particle = document.createElement('div');
+                    particle.className = 'holi-particle';
+                    
+                    // Random properties
+                    const color = colors[Math.floor(Math.random() * colors.length)];
+                    const size = Math.random() * 6 + 4;
+                    const left = Math.random() * 100;
+                    const duration = Math.random() * 10 + 10;
+                    const delay = Math.random() * 5;
+                    
+                    particle.style.background = color;
+                    particle.style.width = `${size}px`;
+                    particle.style.height = `${size}px`;
+                    particle.style.left = `${left}%`;
+                    particle.style.animationDuration = `${duration}s`;
+                    particle.style.animationDelay = `${delay}s`;
+                    
+                    holiEffects.appendChild(particle);
+                }
+            }
+            
+            // Convert hex color to RGB
+            function hexToRgb(hex) {
+                hex = hex.replace('#', '');
+                const r = parseInt(hex.substring(0, 2), 16);
+                const g = parseInt(hex.substring(2, 4), 16);
+                const b = parseInt(hex.substring(4, 6), 16);
+                return `${r}, ${g}, ${b}`;
+            }
+            
+            // Download card as image
+            function downloadCard() {
+                const filename = filenameInput.value.trim() || 'Holi_Wishes_Card';
+                
+                // Show loader
+                loader.classList.add('active');
+                
+                // Use html2canvas to capture the card
+                html2canvas(cardPreview, {
+                    backgroundColor: '#000000',
+                    scale: 2,
+                    useCORS: true,
+                    logging: false,
+                    allowTaint: true
+                }).then(canvas => {
+                    // Convert canvas to data URL
+                    const imgData = canvas.toDataURL('image/png');
+                    
+                    // Create a temporary link to download the image
+                    const link = document.createElement('a');
+                    link.href = imgData;
+                    link.download = `${filename}.png`;
+                    document.body.appendChild(link);
+                    link.click();
+                    document.body.removeChild(link);
+                    
+                    // Hide loader
+                    loader.classList.remove('active');
+                    
+                    // Show success toast
+                    showToast('Download Complete', `Your Holi card has been saved as "${filename}.png"`);
+                }).catch(error => {
+                    console.error('Error generating card:', error);
+                    loader.classList.remove('active');
+                    showToast('Error', 'Failed to generate card. Please try again.', true);
+                });
+            }
+            
+            // Share Holi wish
+            function shareWish() {
+                const message = messageInput.value;
+                const sender = senderNameInput.value || 'Your Name';
+                const recipient = recipientNameInput.value || 'Friend';
+                
+                const shareText = `🎨 Holi Greetings for ${recipient}!\n\n${message}\n\n${sender}\n\nCreated with Holi Wishes Generator`;
+                
+                // Check if Web Share API is available
+                if (navigator.share) {
+                    navigator.share({
+                        title: 'Holi Wishes',
+                        text: shareText,
+                        url: window.location.href
+                    }).catch(error => {
+                        console.log('Error sharing:', error);
+                        fallbackShare(shareText);
+                    });
+                } else {
+                    fallbackShare(shareText);
+                }
+            }
+            
+            // Fallback share method
+            function fallbackShare(shareText) {
+                // Copy to clipboard
+                navigator.clipboard.writeText(shareText).then(() => {
+                    showToast('Copied to Clipboard', 'Holi wish copied! You can now paste it in any app.');
+                }).catch(err => {
+                    console.error('Failed to copy: ', err);
+                    // If clipboard fails, show text to copy
+                    prompt('Copy this Holi wish to share:', shareText);
+                });
+            }
+            
+            // Copy wish text
+            function copyWishText() {
+                const message = messageInput.value;
+                const sender = senderNameInput.value || 'Your Name';
+                const recipient = recipientNameInput.value || 'Friend';
+                
+                const fullText = `To: ${recipient}\n\n${message}\n\n${sender}`;
+                
+                navigator.clipboard.writeText(fullText).then(() => {
+                    showToast('Text Copied', 'Holi wish text has been copied to clipboard.');
+                }).catch(err => {
+                    console.error('Failed to copy: ', err);
+                    showToast('Error', 'Failed to copy text. Please try again.', true);
+                });
+            }
+            
+            // Show toast notification
+            function showToast(title, message, isError = false) {
+                toastTitle.textContent = title;
+                toastMessage.textContent = message;
+                
+                if (isError) {
+                    toast.style.borderLeftColor = '#FF6B6B';
+                    toastIcon.className = 'fas fa-exclamation-circle toast-icon';
+                } else {
+                    toast.style.borderLeftColor = currentColor;
+                    toastIcon.className = 'fas fa-check-circle toast-icon';
+                }
+                
+                toast.classList.add('show');
+                
+                // Hide toast after 4 seconds
+                setTimeout(() => {
+                    toast.classList.remove('show');
+                }, 4000);
+            }
+            
+            // Initialize the app
+            init();
+        });
+    </script>
+</body>
+</html>
