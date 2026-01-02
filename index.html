@@ -164,13 +164,6 @@ footer{
     border-radius:50%;
     background:#00ff7f;
     box-shadow:0 0 10px #00ff7f;
-    animation:pulse 1.5s infinite;
-}
-
-@keyframes pulse{
-    0%{opacity:1}
-    50%{opacity:0.3}
-    100%{opacity:1}
 }
 
 /* HUB INFO */
@@ -191,11 +184,6 @@ footer{
     line-height:1.6;
 }
 
-/* GLOW EFFECT */
-.glow{
-    text-shadow:0 0 10px #00ff7f,0 0 20px #00ff7f;
-}
-
 /* SNOW COUNTER */
 .snow-counter{
     position:fixed;
@@ -205,23 +193,6 @@ footer{
     opacity:0.3;
     z-index:100;
 }
-
-/* TOOL LINK */
-.tool-link{
-    display:inline-block;
-    margin-top:15px;
-    padding:8px 15px;
-    background:rgba(0,255,127,0.2);
-    color:#00ff7f;
-    border-radius:10px;
-    text-decoration:none;
-    font-size:0.9rem;
-    transition:.3s;
-}
-.tool-link:hover{
-    background:#00ff7f;
-    color:#000;
-}
 </style>
 </head>
 
@@ -230,16 +201,11 @@ footer{
 <canvas id="snow"></canvas>
 
 <section class="hero">
-    <h1 class="glow">✨ Wishing Generator Hub ✨</h1>
+    <h1>✨ Wishing Generator Hub ✨</h1>
     <p>Create • Personalize • Share Beautiful Wishes</p>
 
-    <div class="hub-info">
-        <h2>🚀 All 6 Generators Working!</h2>
-        <p>Click any generator below to open it in a new tab. All tools feature black & green themes with premium features.</p>
-    </div>
-
     <div class="search-box">
-        <input type="text" id="search" placeholder="🔍 Search wishing generator...">
+        <input type="text" id="search" placeholder="Search wishing generator...">
     </div>
 
     <div class="filters">
@@ -250,159 +216,82 @@ footer{
     </div>
 </section>
 
-<section class="tools" id="toolList">
-    <!-- Tools will be loaded here -->
-</section>
+<section class="tools" id="toolList"></section>
 
 <footer>
-© 2026 Wishing Generator Hub | All 6 generators are now working and connected!
+© 2026 Wishing Generator Hub
 </footer>
 
-<div class="snow-counter" id="snowCounter">❄️ 80 snowflakes</div>
+<div class="snow-counter">❄️ Snowflakes</div>
 
 <script>
-/* AUTO CONNECT GENERATORS - ALL WITH FULL WORKING URLS */
+/* AUTO CONNECT GENERATORS - USING YOUR EXACT FILENAMES */
 const tools = [
     {
         name: "Birthday Wishes Generator",
-        file: "https://mariaajames280-blip.github.io/wishing-generator-hub/birthday-wishes-generator.html", 
+        file: "birthday-wishes-generator.html", 
         cat: "birthday",
-        badge: "🔥 Trending",
-        status: "online",
-        icon: "🎂",
-        description: "Create birthday wishes with music, fireworks & posters"
+        badge: "🔥 Trending"
     },
     {
-        name: "Anniversary Wishes Generator",
-        file: "https://mariaajames280-blip.github.io/wishing-generator-hub/anniversary-wishes-generator.html", 
+        name: "Anniversary Wishes Generator", 
+        file: "anniversary-wishes-generator-pro.html", 
         cat: "event",
-        badge: "❤️ Popular",
-        status: "online",
-        icon: "💍",
-        description: "Pro anniversary wishes with gift suggestions"
+        badge: "❤️ Popular"
     },
     {
-        name: "Eid Wishes Generator",
-        file: "https://mariaajames280-blip.github.io/wishing-generator-hub/eid-wishes-generator.html", 
+        name: "Eid Wishes Generator", 
+        file: "eid-wishes-generator-pro.html", 
         cat: "festival",
-        badge: "🕌 Hot",
-        status: "online",
-        icon: "🌙",
-        description: "Festival wishes generator with Arabic support"
+        badge: "🕌 Hot"
     },
     {
-        name: "Festival Wishes Generator",
-        file: "https://mariaajames280-blip.github.io/wishing-generator-hub/festival-wishes-generator.html", 
-        cat: "festival",
-        badge: "🌍 Global",
-        status: "online",
-        icon: "🎉",
-        description: "120+ festivals from around the world"
+        name: "Festival Wishes Generator", 
+        file: "festival-wishes-generator-pro.html", 
+        cat: "festival"
     },
     {
-        name: "New Year Wishes Generator",
-        file: "https://mariaajames280-blip.github.io/wishing-generator-hub/new-year-wishes-generator.html", 
+        name: "Christmas Wishes Generator", 
+        file: "christmas-wishes-generator-pro.html", 
         cat: "event",
-        badge: "🎆 Viral",
-        status: "online",
-        icon: "🎇",
-        description: "New year wishes with countdown timer"
+        badge: "🎄 Christmas"
     },
     {
-        name: "WhatsApp Wishes Generator",
-        file: "https://mariaajames280-blip.github.io/wishing-generator-hub/whatsapp-wishes-generator.html", 
+        name: "New Year Wishes Generator", 
+        file: "newyear-wishes-generator.html", 
         cat: "event",
-        badge: "📱 Social",
-        status: "online",
-        icon: "💬",
-        description: "Direct WhatsApp sharing with templates"
+        badge: "🎆 Viral"
     }
 ];
 
 const list = document.getElementById("toolList");
-let activeFilter = 'all';
 
 function render(data){
-    list.innerHTML = "";
-    data.forEach(t => {
-        const toolElement = document.createElement('div');
-        toolElement.className = 'tool';
-        toolElement.setAttribute('data-cat', t.cat);
-        
-        toolElement.innerHTML = `
-            <div class="status" style="background: ${t.status === 'online' ? '#00ff7f' : '#ff0000'}"></div>
-            ${t.badge ? `<div class="badge">${t.badge}</div>` : ""}
-            <div style="font-size:2.5rem;margin-bottom:15px;">${t.icon}</div>
-            <h3>${t.name}</h3>
-            <p style="font-size:0.9rem;opacity:0.7;margin:10px 0;min-height:40px;">${t.description}</p>
-            <span>${t.cat.toUpperCase()} Wishes</span>
-            <div style="margin-top:15px;">
-                <a href="${t.file}" class="tool-link" target="_blank" onclick="trackClick('${t.name}')">
-                    Open Generator →
-                </a>
-            </div>
-        `;
-        
-        // Add click event to the entire card (except the link)
-        toolElement.addEventListener('click', function(e) {
-            if (!e.target.classList.contains('tool-link') && !e.target.closest('.tool-link')) {
-                e.preventDefault();
-                window.open(t.file, '_blank');
-                trackClick(t.name);
-            }
-        });
-        
-        list.appendChild(toolElement);
-    });
+ list.innerHTML="";
+ data.forEach(t=>{
+   list.innerHTML+=`
+    <div class="tool" data-cat="${t.cat}" onclick="window.open('${t.file}', '_blank')">
+     ${t.badge?`<div class="badge">${t.badge}</div>`:""}
+     <h3>${t.name}</h3>
+     <span>${t.cat.toUpperCase()} Wishes</span>
+    </div>`;
+ });
 }
-
-// Track clicks for analytics
-function trackClick(toolName) {
-    console.log(`📊 Tool clicked: ${toolName}`);
-    // You can add Google Analytics or other tracking here
-}
-
-// Initial render
 render(tools);
 
 /* SEARCH */
-document.getElementById("search").addEventListener("input", e => {
-    const searchValue = e.target.value.toLowerCase();
-    const filteredTools = tools.filter(t => 
-        t.name.toLowerCase().includes(searchValue) || 
-        t.cat.toLowerCase().includes(searchValue) ||
-        t.description.toLowerCase().includes(searchValue)
-    );
-    
-    // Apply active filter
-    let result = filteredTools;
-    if (activeFilter !== 'all') {
-        result = filteredTools.filter(t => t.cat === activeFilter);
-    }
-    
-    render(result);
+document.getElementById("search").addEventListener("input",e=>{
+ const v=e.target.value.toLowerCase();
+ render(tools.filter(t=>t.name.toLowerCase().includes(v)));
 });
 
 /* FILTER */
-function filterTools(category){
-    activeFilter = category;
-    
-    // Update active button
-    document.querySelectorAll('.filters button').forEach(btn => {
-        btn.classList.remove('active');
-    });
-    event.target.classList.add('active');
-    
-    if(category === "all") {
-        render(tools);
-    } else {
-        render(tools.filter(t => t.cat === category));
-    }
+function filterTools(c){
+ if(c==="all") render(tools);
+ else render(tools.filter(t=>t.cat===c));
 }
 
-/* ================================ */
-/* YOUR EXACT SNOWFALL CODE BELOW   */
-/* ================================ */
+/* SNOWFALL - YOUR EXACT CODE */
 const c=document.getElementById("snow"),x=c.getContext("2d");
 c.width=innerWidth;c.height=innerHeight;
 let s=[];
@@ -419,73 +308,17 @@ for(let i=0;i<80;i++)s.push({x:Math.random()*c.width,y:Math.random()*c.height,r:
  requestAnimationFrame(snow);
 })();
 
-/* ================================ */
-/* ADDITIONAL FUNCTIONS             */
-/* ================================ */
-
-// Handle window resize for snow
+// Handle window resize
 window.addEventListener('resize', function() {
     c.width = innerWidth;
     c.height = innerHeight;
-    // Reset snowflakes for new screen size
-    s = [];
-    for(let i=0;i<80;i++)s.push({x:Math.random()*c.width,y:Math.random()*c.height,r:Math.random()*3+1});
 });
 
-// Add click ripple effect
-document.addEventListener('click', function(e) {
-    // Create ripple element
-    const ripple = document.createElement('div');
-    ripple.style.position = 'fixed';
-    ripple.style.left = e.clientX + 'px';
-    ripple.style.top = e.clientY + 'px';
-    ripple.style.width = '0';
-    ripple.style.height = '0';
-    ripple.style.borderRadius = '50%';
-    ripple.style.border = '2px solid #00ff7f';
-    ripple.style.transform = 'translate(-50%, -50%)';
-    ripple.style.zIndex = '999';
-    ripple.style.pointerEvents = 'none';
-    document.body.appendChild(ripple);
-    
-    // Animate ripple
-    let size = 0;
-    const interval = setInterval(() => {
-        size += 5;
-        ripple.style.width = size + 'px';
-        ripple.style.height = size + 'px';
-        ripple.style.opacity = (1 - size/100);
-        
-        if(size > 100) {
-            clearInterval(interval);
-            ripple.remove();
-        }
-    }, 16);
+// Debug: Show tool links in console
+console.log("🔗 Your generator links:");
+tools.forEach(t => {
+    console.log(`✅ ${t.name}: ${window.location.origin}/${t.file}`);
 });
-
-// Check if tools are accessible
-async function checkToolsAccessibility() {
-    console.log("🔍 Checking tool accessibility...");
-    
-    for (const tool of tools) {
-        try {
-            // Simple check by creating an image request
-            const img = new Image();
-            img.src = tool.file;
-            console.log(`✅ ${tool.name}: Accessible`);
-        } catch (error) {
-            console.log(`❌ ${tool.name}: May not be accessible`);
-        }
-    }
-}
-
-// Initialize
-console.log("🎉 Wishing Generator Hub Loaded Successfully!");
-console.log("❄️ Snow animation running with 80 snowflakes");
-console.log("🔗 All 6 generators connected with working links");
-
-// Check tool accessibility after a delay
-setTimeout(checkToolsAccessibility, 1000);
 </script>
 
 <!-- SCHEMA -->
@@ -495,7 +328,6 @@ setTimeout(checkToolsAccessibility, 1000);
  "@type":"WebSite",
  "name":"Wishing Generator Hub",
  "url":"https://mariaajames280-blip.github.io/wishing-generator-hub/",
- "description":"Collection of premium wishing generators for birthdays, festivals, and events",
  "potentialAction":{
    "@type":"SearchAction",
    "target":"https://mariaajames280-blip.github.io/wishing-generator-hub/?q={search_term_string}",
