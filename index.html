@@ -162,52 +162,59 @@
 }
 
 /* CHANGE: horizontal → vertical */
-/* TOOL CARD (updated size) */
+/* TOOL CARD (poster-style, responsive with length & width) */
 .tool {
-    width: 100%;               /* full width */
-    max-width: 350px;          /* narrower cards */
-    height: 300px;             /* taller cards */
-    margin: 0 auto;            /* center cards */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+
+    /* Width & Length */
+    width: 90vw;              /* 90% of viewport width */
+    max-width: 1000px;        /* maximum width */
+    min-width: 400px;         /* minimum width */
+    height: 90vh;             /* 90% of viewport height */
+    max-height: 1500px;       /* maximum height */
+    min-height: 300px;        /* minimum height (length) */
+
+    margin: 20px auto;        /* center card with spacing */
+    padding: 25px;
+
     border: 2px solid #00ff7f;
     border-radius: 15px;
-    padding: 25px;
     cursor: pointer;
-    transition: .3s;
+    transition: 0.3s;
     box-shadow: 0 0 15px #00ff7f33;
-    animation: fadeUp .6s ease;
     background: rgba(0, 0, 0, 0.7);
     position: relative;
     overflow: hidden;
-
-    display: flex;             /* center content vertically */
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;   /* align content to top-left */
+    animation: fadeUp 0.6s ease;
 }
 
+/* Hover Effect */
 .tool:hover {
     transform: translateY(-6px) scale(1.02);
     box-shadow: 0 0 30px #00ff7f;
     background: rgba(0, 255, 127, 0.1);
 }
 
+/* Tool Content */
 .tool span {
-    font-size: .9rem;
-    opacity: .9;
+    font-size: 1rem;
+    opacity: 0.9;
 }
 
-/* BADGE */
+/* Badge */
 .badge {
     display: inline-block;
     background: #00ff7f;
     color: #000;
-    font-size: .75rem;
+    font-size: 0.75rem;
     padding: 4px 10px;
     border-radius: 20px;
     margin-bottom: 10px;
     font-weight: bold;
 }
-
 
         /* SCROLL CONTROLS */
         .scroll-controls {
