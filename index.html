@@ -15,6 +15,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
     
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.0/css/all.min.css">
+    
     <style>
         * {
             margin: 0;
@@ -27,193 +30,429 @@
             color: #00ff7f;
             text-align: center;
             overflow-x: hidden;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
         }
-/* HERO */
-.hero{
-    position:relative;
-    padding:80px 20px 60px;
-}
-.hero h1{
-    font-size:3rem;
-    text-shadow:0 0 30px #00ff7f;
-    animation:fadeDown 1.2s ease;
-}
-.hero p{
-    margin-top:10px;
-    opacity:.85;
-}
+        
+        /* ===== NAVIGATION MENU ===== */
+        .main-nav {
+            background: rgba(0, 0, 0, 0.9);
+            border-bottom: 2px solid #00ff7f;
+            padding: 15px 20px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .nav-brand i {
+            color: #00ff7f;
+            font-size: 1.5rem;
+        }
+        
+        .nav-brand h1 {
+            font-size: 1.4rem;
+            color: #00ff7f;
+            text-shadow: 0 0 10px #00ff7f;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+        
+        .nav-links a {
+            color: #00ff7f;
+            text-decoration: none;
+            font-size: 0.9rem;
+            padding: 8px 15px;
+            border-radius: 20px;
+            transition: all 0.3s;
+            border: 1px solid transparent;
+        }
+        
+        .nav-links a:hover,
+        .nav-links a.active {
+            background: #00ff7f;
+            color: #000;
+            border-color: #00ff7f;
+            box-shadow: 0 0 15px #00ff7f;
+        }
 
-/* SEARCH */
-.search-box{
-    margin:30px auto;
-    max-width:400px;
-}
-.search-box input{
-    width:100%;
-    padding:12px 15px;
-    border-radius:30px;
-    border:2px solid #00ff7f;
-    font-size:1rem;
-    background:#111;
-    color:#00ff7f;
-}
-.search-box input:focus{
-    outline:none;
-    box-shadow:0 0 15px #00ff7f;
-}
+        /* HERO */
+        .hero {
+            position: relative;
+            padding: 60px 20px 40px;
+            flex-grow: 1;
+        }
+        .hero h1 {
+            font-size: 3rem;
+            text-shadow: 0 0 30px #00ff7f;
+            animation: fadeDown 1.2s ease;
+        }
+        .hero p {
+            margin-top: 10px;
+            opacity: .85;
+        }
 
-/* FILTER */
-.filters{
-    margin:20px 0;
-}
-.filters button{
-    background:#000;
-    color:#00ff7f;
-    border:1px solid #00ff7f;
-    padding:8px 15px;
-    margin:5px;
-    border-radius:20px;
-    cursor:pointer;
-    transition:.3s;
-}
-.filters button:hover{
-    background:#00ff7f;
-    color:#000;
-}
-.filters button.active{
-    background:#00ff7f;
-    color:#000;
-    font-weight:bold;
-}
+        /* SEARCH */
+        .search-box {
+            margin: 30px auto;
+            max-width: 400px;
+        }
+        .search-box input {
+            width: 100%;
+            padding: 12px 15px;
+            border-radius: 30px;
+            border: 2px solid #00ff7f;
+            font-size: 1rem;
+            background: #111;
+            color: #00ff7f;
+        }
+        .search-box input:focus {
+            outline: none;
+            box-shadow: 0 0 15px #00ff7f;
+        }
 
-/* GRID */
-.tools{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:25px;
-    max-width:1200px;
-    margin:30px auto 60px;
-    padding:0 20px;
-}
-.tool{
-    border:2px solid #00ff7f;
-    border-radius:15px;
-    padding:25px;
-    cursor:pointer;
-    transition:.3s;
-    box-shadow:0 0 15px #00ff7f33;
-    animation:fadeUp .6s ease;
-    background:rgba(0,0,0,0.7);
-    position:relative;
-    overflow:hidden;
-}
-.tool:hover{
-    transform:translateY(-8px) scale(1.05);
-    box-shadow:0 0 30px #00ff7f;
-    background:rgba(0,255,127,0.1);
-}
-.tool span{
-    font-size:.8rem;
-    opacity:.8;
-}
+        /* FILTER */
+        .filters {
+            margin: 20px 0;
+        }
+        .filters button {
+            background: #000;
+            color: #00ff7f;
+            border: 1px solid #00ff7f;
+            padding: 8px 15px;
+            margin: 5px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: .3s;
+        }
+        .filters button:hover {
+            background: #00ff7f;
+            color: #000;
+        }
+        .filters button.active {
+            background: #00ff7f;
+            color: #000;
+            font-weight: bold;
+        }
 
-/* BADGE */
-.badge{
-    display:inline-block;
-    background:#00ff7f;
-    color:#000;
-    font-size:.7rem;
-    padding:3px 8px;
-    border-radius:20px;
-    margin-bottom:8px;
-    font-weight:bold;
-}
+        /* HORIZONTAL TOOL GRID */
+        .tools-container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+        
+        .tools-scroll {
+            display: flex;
+            overflow-x: auto;
+            gap: 25px;
+            padding: 20px 10px;
+            scrollbar-width: thin;
+            scrollbar-color: #00ff7f #111;
+        }
+        
+        .tools-scroll::-webkit-scrollbar {
+            height: 8px;
+        }
+        
+        .tools-scroll::-webkit-scrollbar-track {
+            background: #111;
+            border-radius: 10px;
+        }
+        
+        .tools-scroll::-webkit-scrollbar-thumb {
+            background: #00ff7f;
+            border-radius: 10px;
+        }
+        
+        .tool {
+            flex: 0 0 auto;
+            width: 280px;
+            border: 2px solid #00ff7f;
+            border-radius: 15px;
+            padding: 25px;
+            cursor: pointer;
+            transition: .3s;
+            box-shadow: 0 0 15px #00ff7f33;
+            animation: fadeUp .6s ease;
+            background: rgba(0, 0, 0, 0.7);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .tool:hover {
+            transform: translateY(-8px) scale(1.05);
+            box-shadow: 0 0 30px #00ff7f;
+            background: rgba(0, 255, 127, 0.1);
+        }
+        
+        .tool span {
+            font-size: .8rem;
+            opacity: .8;
+        }
 
-/* FOOTER */
-footer{
-    font-size:.8rem;
-    opacity:.6;
-    margin-bottom:20px;
-    padding:20px;
-    border-top:1px solid #00ff7f33;
-}
+        /* BADGE */
+        .badge {
+            display: inline-block;
+            background: #00ff7f;
+            color: #000;
+            font-size: .7rem;
+            padding: 3px 8px;
+            border-radius: 20px;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
 
-/* ANIMATIONS */
-@keyframes fadeDown{
-    from{opacity:0;transform:translateY(-40px)}
-    to{opacity:1;transform:translateY(0)}
-}
-@keyframes fadeUp{
-    from{opacity:0;transform:translateY(30px)}
-    to{opacity:1;transform:translateY(0)}
-}
+        /* SCROLL CONTROLS */
+        .scroll-controls {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .scroll-btn {
+            background: #000;
+            border: 1px solid #00ff7f;
+            color: #00ff7f;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: .3s;
+        }
+        
+        .scroll-btn:hover {
+            background: #00ff7f;
+            color: #000;
+            transform: scale(1.1);
+        }
 
-/* SNOW CANVAS */
-#snow{
-    position:fixed;
-    top:0;
-    left:0;
-    width:100%;
-    height:100%;
-    z-index:-1;
-    pointer-events:none;
-}
+        /* COMPLETE FOOTER */
+        .main-footer {
+            background: #0a0a0a;
+            border-top: 1px solid #00ff7f33;
+            padding: 50px 20px 20px;
+            margin-top: 60px;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-section h3 {
+            color: #00ff7f;
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            text-shadow: 0 0 10px #00ff7f;
+        }
+        
+        .footer-section ul {
+            list-style: none;
+        }
+        
+        .footer-section ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-section ul li a {
+            color: #00ff7f;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .footer-section ul li a:hover {
+            color: #000;
+            background: #00ff7f;
+            padding: 5px 10px;
+            border-radius: 20px;
+        }
+        
+        .footer-social {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .footer-social a {
+            width: 35px;
+            height: 35px;
+            background: #111;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #00ff7f;
+            text-decoration: none;
+            transition: all 0.3s;
+            border: 1px solid #00ff7f;
+        }
+        
+        .footer-social a:hover {
+            background: #00ff7f;
+            color: #000;
+            transform: translateY(-3px);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #00ff7f33;
+            color: #00ff7f;
+            font-size: 0.8rem;
+            opacity: 0.6;
+        }
+        
+        .footer-network {
+            margin-top: 10px;
+        }
+        
+        .footer-network a {
+            color: #00ff7f;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        
+        .footer-network a:hover {
+            text-decoration: underline;
+        }
 
-/* STATUS INDICATOR */
-.status{
-    position:absolute;
-    top:10px;
-    right:10px;
-    width:10px;
-    height:10px;
-    border-radius:50%;
-    background:#00ff7f;
-    box-shadow:0 0 10px #00ff7f;
-}
+        /* ANIMATIONS */
+        @keyframes fadeDown {
+            from { opacity: 0; transform: translateY(-40px) }
+            to { opacity: 1; transform: translateY(0) }
+        }
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(30px) }
+            to { opacity: 1; transform: translateY(0) }
+        }
 
-/* HUB INFO */
-.hub-info{
-    max-width:800px;
-    margin:20px auto;
-    padding:20px;
-    border:1px solid #00ff7f33;
-    border-radius:10px;
-    background:rgba(0,255,127,0.05);
-}
-.hub-info h2{
-    margin-bottom:10px;
-    color:#00ff7f;
-}
-.hub-info p{
-    opacity:.8;
-    line-height:1.6;
-}
+        /* SNOW CANVAS */
+        #snow {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+        }
 
-/* SNOW COUNTER */
-.snow-counter{
-    position:fixed;
-    bottom:10px;
-    right:10px;
-    font-size:0.8rem;
-    opacity:0.3;
-    z-index:100;
-}
-</style>
+        /* SNOW COUNTER */
+        .snow-counter {
+            position: fixed;
+            bottom: 10px;
+            right: 10px;
+            font-size: 0.8rem;
+            opacity: 0.3;
+            z-index: 100;
+        }
+        
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .nav-links {
+                gap: 15px;
+                justify-content: center;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .tool {
+                width: 250px;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .nav-links {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .tool {
+                width: 220px;
+                padding: 20px;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
 <canvas id="snow"></canvas>
 
+<!-- NAVIGATION MENU -->
+<nav class="main-nav">
+    <div class="nav-container">
+        <div class="nav-brand">
+            <i class="fas fa-feather-alt"></i>
+            <h1>Wishing Generator Hub</h1>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#" class="active">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="privacy.html">Privacy</a></li>
+            <li><a href="https://onlinewebtool.live/" target="_blank">Web Tools</a></li>
+        </ul>
+    </div>
+</nav>
+
 <section class="hero">
-    
-<script src="https://www.highperformanceformat.com/1d1b141d779b7f32f5f35246b9ab88e4/invoke.js"></script>
+    <script src="https://www.highperformanceformat.com/1d1b141d779b7f32f5f35246b9ab88e4/invoke.js"></script>
     <script src="https://pl28395138.effectivegatecpm.com/b3/c7/ab/b3c7ab8e149c47b2bdb2d81d1c4f76d9.js"></script>
     <h1>✨ Wishing Generator Hub ✨</h1>
     <p>Create • Personalize • Share Beautiful Wishes</p>
 
     <div class="search-box">
-    <input type="text" id="search" placeholder="Search wishing generator...">
+        <input type="text" id="search" placeholder="Search wishing generator...">
     </div>
 
     <div class="filters">
@@ -222,14 +461,77 @@ footer{
         <button onclick="filterTools('festival')">Festival</button>
         <button onclick="filterTools('event')">Event</button>
     </div>
-    
-<script src="https://www.highperformanceformat.com/1d1b141d779b7f32f5f35246b9ab88e4/invoke.js"></script>
 </section>
 
-<section class="tools" id="toolList"></section>
+<!-- HORIZONTAL TOOLS SECTION -->
+<section class="tools-container">
+    <div class="tools-scroll" id="toolList">
+        <!-- Tools will be inserted here by JavaScript -->
+    </div>
+    
+    <div class="scroll-controls">
+        <button class="scroll-btn" onclick="scrollTools('left')">
+            <i class="fas fa-chevron-left"></i>
+        </button>
+        <button class="scroll-btn" onclick="scrollTools('right')">
+            <i class="fas fa-chevron-right"></i>
+        </button>
+    </div>
+</section>
 
-<footer>
-© 2026 Wishing Generator Hub
+<!-- COMPLETE FOOTER -->
+<footer class="main-footer">
+    <div class="footer-content">
+        <div class="footer-section">
+            <h3>Wishing Generator Hub</h3>
+            <p style="color: #00ff7f; font-size: 0.9rem; line-height: 1.6; opacity: 0.8;">
+                Free wishing generators for birthdays, festivals, and events. Create perfect messages instantly.
+            </p>
+            <div class="footer-social">
+                <a href="https://facebook.com/profile.php?id=61576960891584" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://x.com/mariaajames280" target="_blank"><i class="fab fa-twitter"></i></a>
+                <a href="https://linkedin.com/in/maria-james-78581a399" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </div>
+        
+        <div class="footer-section">
+            <h3>Quick Links</h3>
+            <ul>
+                <li><a href="#"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="about.html"><i class="fas fa-info-circle"></i> About Us</a></li>
+                <li><a href="contact.html"><i class="fas fa-envelope"></i> Contact</a></li>
+                <li><a href="privacy.html"><i class="fas fa-shield-alt"></i> Privacy Policy</a></li>
+                <li><a href="sitemap.xml"><i class="fas fa-sitemap"></i> Sitemap</a></li>
+            </ul>
+        </div>
+        
+        <div class="footer-section">
+            <h3>Popular Generators</h3>
+            <ul>
+                <li><a href="birthday-wishes-generator.html"><i class="fas fa-birthday-cake"></i> Birthday Wishes</a></li>
+                <li><a href="anniversary-wishes-generator-pro.html"><i class="fas fa-heart"></i> Anniversary Wishes</a></li>
+                <li><a href="festival-wishes-generator-pro.html"><i class="fas fa-holly-berry"></i> Festival Wishes</a></li>
+                <li><a href="newyear-wishes-generator.html"><i class="fas fa-glass-cheers"></i> New Year Wishes</a></li>
+                <li><a href="christmas-wishes-generator-pro.html"><i class="fas fa-tree"></i> Christmas Wishes</a></li>
+            </ul>
+        </div>
+        
+        <div class="footer-section">
+            <h3>Our Network</h3>
+            <ul>
+                <li><a href="https://onlinewebtool.live/" target="_blank"><i class="fas fa-external-link-alt"></i> OnlineWebTool</a></li>
+                <li><a href="https://onlinetoolstack.site/" target="_blank"><i class="fas fa-external-link-alt"></i> OnlineToolStack</a></li>
+                <li><a href="https://toolnest.live/" target="_blank"><i class="fas fa-external-link-alt"></i> ToolNest</a></li>
+            </ul>
+        </div>
+    </div>
+    
+    <div class="footer-bottom">
+        <p>© 2026 Wishing Generator Hub. All rights reserved.</p>
+        <div class="footer-network">
+            Part of the <a href="https://onlinewebtool.live/" target="_blank">Free Online Tools</a> network
+        </div>
+    </div>
 </footer>
 
 <div class="snow-counter">❄️ Snowflakes</div>
@@ -298,49 +600,61 @@ const tools = [
    }
 ];
 
-
 const list = document.getElementById("toolList");
 
-function render(data){
- list.innerHTML="";
- data.forEach(t=>{
-   list.innerHTML+=`
-    <div class="tool" data-cat="${t.cat}" onclick="window.open('${t.file}', '_blank')">
-     ${t.badge?`<div class="badge">${t.badge}</div>`:""}
-     <h3>${t.name}</h3>
-     <span>${t.cat.toUpperCase()} Wishes</span>
-    </div>`;
- });
+function render(data) {
+    list.innerHTML = "";
+    data.forEach(t => {
+        list.innerHTML += `
+        <div class="tool" data-cat="${t.cat}" onclick="window.open('${t.file}', '_blank')">
+            ${t.badge ? `<div class="badge">${t.badge}</div>` : ""}
+            <h3>${t.name}</h3>
+            <span>${t.cat.toUpperCase()} Wishes</span>
+        </div>`;
+    });
 }
 render(tools);
 
 /* SEARCH */
-document.getElementById("search").addEventListener("input",e=>{
- const v=e.target.value.toLowerCase();
- render(tools.filter(t=>t.name.toLowerCase().includes(v)));
+document.getElementById("search").addEventListener("input", e => {
+    const v = e.target.value.toLowerCase();
+    render(tools.filter(t => t.name.toLowerCase().includes(v)));
 });
 
 /* FILTER */
-function filterTools(c){
- if(c==="all") render(tools);
- else render(tools.filter(t=>t.cat===c));
+function filterTools(c) {
+    if (c === "all") render(tools);
+    else render(tools.filter(t => t.cat === c));
+}
+
+/* HORIZONTAL SCROLL CONTROLS */
+function scrollTools(direction) {
+    const scrollAmount = 300;
+    if (direction === 'left') {
+        list.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+    } else {
+        list.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+    }
 }
 
 /* SNOWFALL - YOUR EXACT CODE */
-const c=document.getElementById("snow"),x=c.getContext("2d");
-c.width=innerWidth;c.height=innerHeight;
-let s=[];
-for(let i=0;i<80;i++)s.push({x:Math.random()*c.width,y:Math.random()*c.height,r:Math.random()*3+1});
-(function snow(){
- x.clearRect(0,0,c.width,c.height);
- x.fillStyle="#00ff7f";
- s.forEach(f=>{
-   x.beginPath();
-   x.arc(f.x,f.y,f.r,0,Math.PI*2);
-   x.fill();
-   f.y+=1;if(f.y>c.height)f.y=0;
- });
- requestAnimationFrame(snow);
+const c = document.getElementById("snow"), x = c.getContext("2d");
+c.width = innerWidth;
+c.height = innerHeight;
+let s = [];
+for (let i = 0; i < 80; i++) s.push({ x: Math.random() * c.width, y: Math.random() * c.height, r: Math.random() * 3 + 1 });
+
+(function snow() {
+    x.clearRect(0, 0, c.width, c.height);
+    x.fillStyle = "#00ff7f";
+    s.forEach(f => {
+        x.beginPath();
+        x.arc(f.x, f.y, f.r, 0, Math.PI * 2);
+        x.fill();
+        f.y += 1;
+        if (f.y > c.height) f.y = 0;
+    });
+    requestAnimationFrame(snow);
 })();
 
 // Handle window resize
@@ -359,14 +673,14 @@ tools.forEach(t => {
 <!-- SCHEMA -->
 <script type="application/ld+json">
 {
- "@context":"https://schema.org",
- "@type":"WebSite",
- "name":"Wishing Generator Hub",
- "url":"https://mariaajames280-blip.github.io/wishing-generator-hub/",
- "potentialAction":{
-   "@type":"SearchAction",
-   "target":"https://mariaajames280-blip.github.io/wishing-generator-hub/?q={search_term_string}",
-   "query-input":"required name=search_term_string"
+ "@context": "https://schema.org",
+ "@type": "WebSite",
+ "name": "Wishing Generator Hub",
+ "url": "https://mariaajames280-blip.github.io/wishing-generator-hub/",
+ "potentialAction": {
+   "@type": "SearchAction",
+   "target": "https://mariaajames280-blip.github.io/wishing-generator-hub/?q={search_term_string}",
+   "query-input": "required name=search_term_string"
  }
 }
 </script>
