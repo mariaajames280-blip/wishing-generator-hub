@@ -162,9 +162,10 @@
 }
 
 /* CHANGE: horizontal → vertical */
+/* VERTICAL SCROLL CONTAINER */
 .tools-scroll {
     display: flex;
-    flex-direction: column;   /* ✅ vertical */
+    flex-direction: column;   /* vertical layout */
     gap: 25px;
     padding: 20px 10px;
     overflow-y: auto;         /* vertical scroll */
@@ -172,9 +173,9 @@
     scrollbar-color: #00ff7f #111;
 }
 
-/* vertical scrollbar */
+/* Vertical scrollbar */
 .tools-scroll::-webkit-scrollbar {
-    width: 8px;               /* changed from height */
+    width: 8px; 
 }
 
 .tools-scroll::-webkit-scrollbar-track {
@@ -187,11 +188,12 @@
     border-radius: 10px;
 }
 
-/* TOOL CARD (unchanged size & style) */
+/* TOOL CARD (updated size) */
 .tool {
-    width: 100%;              /* ✅ full row */
-    max-width: 500px;         /* keeps card same visual size */
-    margin: 0 auto;           /* center cards */
+    width: 100%;               /* full width */
+    max-width: 500px;          /* keeps card visually reasonable */
+    height: 180px;             /* explicit height for better length */
+    margin: 0 auto;            /* center cards */
     border: 2px solid #00ff7f;
     border-radius: 15px;
     padding: 25px;
@@ -202,6 +204,11 @@
     background: rgba(0, 0, 0, 0.7);
     position: relative;
     overflow: hidden;
+
+    display: flex;             /* center content vertically & horizontally */
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;   /* content aligned to start */
 }
 
 .tool:hover {
@@ -211,19 +218,19 @@
 }
 
 .tool span {
-    font-size: .8rem;
-    opacity: .8;
+    font-size: .9rem;          /* slightly bigger for readability */
+    opacity: .9;
 }
 
-/* BADGE (unchanged) */
+/* BADGE */
 .badge {
     display: inline-block;
     background: #00ff7f;
     color: #000;
-    font-size: .7rem;
-    padding: 3px 8px;
+    font-size: .75rem;
+    padding: 4px 10px;
     border-radius: 20px;
-    margin-bottom: 8px;
+    margin-bottom: 10px;
     font-weight: bold;
 }
 
