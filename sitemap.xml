@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    
+    <!-- Homepage (Highest Priority - Updated TODAY) -->
+    <url>
+        <loc>https://www.toolnest.live/</loc>
+        <lastmod>2024-01-15</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>1.0</priority>
+    </url>
+    
+    <!-- Anniversary Wishes Generator (Updated yesterday) -->
+    <url>
+        <loc>https://www.toolnest.live/anniversary-wishes-generator-pro.html</loc>
+        <lastmod>2024-01-14</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    
+    <!-- Birthday Wishes Generator (Updated 2 days ago) -->
+    <url>
+        <loc>https://www.toolnest.live/birthday-wishes-generator.html</loc>
+        <lastmod>2024-01-13</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    
+    <!-- Christmas Wishes Generator (Updated yesterday) -->
+    <url>
+        <loc>https://www.toolnest.live/christmas-wishes-generator-pro.html</loc>
+        <lastmod>2024-01-14</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <!-- Diwali Wishes Generator (Created/Updated TODAY) -->
+    <url>
+        <loc>https://www.toolnest.live/diwali-wishes-generator.html</loc>
+        <lastmod>2024-01-15</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <!-- Eid Wishes Generator (Updated yesterday) -->
+    <url>
+        <loc>https://www.toolnest.live/eid-wishes-generator-pro.html</loc>
+        <lastmod>2024-01-14</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <!-- Festival Wishes Generator (Updated yesterday) -->
+    <url>
+        <loc>https://www.toolnest.live/festival-wishes-generator-pro.html</loc>
+        <lastmod>2024-01-14</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    
+    <!-- Holi Wishes Generator (Updated TODAY) -->
+    <url>
+        <loc>https://www.toolnest.live/holi-wishes-generator.html</loc>
+        <lastmod>2024-01-15</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <!-- Islamic New Year Wishes Generator (Created/Updated TODAY) -->
+    <url>
+        <loc>https://www.toolnest.live/islamic-new-year-wishes-generator.html</loc>
+        <lastmod>2024-01-15</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    
+    <!-- New Year Wishes Generator (Updated yesterday) -->
+    <url>
+        <loc>https://www.toolnest.live/newyear-wishes-generator.html</loc>
+        <lastmod>2024-01-14</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <!-- Ramadan Wishes Generator (Updated TODAY) -->
+    <url>
+        <loc>https://www.toolnest.live/ramadan-wishes-generator-pro.html</loc>
+        <lastmod>2024-01-15</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+</urlset>
